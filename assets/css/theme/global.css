@@ -1,0 +1,73 @@
+/*** Typography ***/
+:root {
+  --primary-color: rgb(41,112,235);
+  --secondary-color: rgb(250,227,214);
+  --accent-1-color: rgb(140,191,214);
+  --accent-2-color: rgb(232,135,128);
+  --accent-3-color: rgb(232,184,135);
+  --text-color: rgb(38,37,35);
+
+  --black-1: #0E161A;
+  --black-2: #03030c;
+  --black-3: #0a0e0d;
+
+  --dark-grey: rgb(88,88,86);
+  --medium-grey: rgb(138,139,138);
+  --light-grey: rgb(188,189,189);
+  --off-white: rgb(238,240,240);
+  --white: rgb(255,255,255);
+}
+
+body {
+  font-family: rival-sans, sans-serif; 
+}
+
+small, .small {
+  font-size: 0.75rem;
+}
+
+p, .p {
+  font-size: 1rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+h5, .h5 {
+  font-size: 1.125rem;
+}
+
+h4, .h4 {
+  font-size: 1.313rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h2, .h2 {
+  font-size: 2.25rem;
+}
+
+h1, .h1 {
+  font-size: 3rem;
+}
+
+.jumbo {
+  font-size: 4rem;
+  font-family: chonko, sans-serif;
+}
+
+.mega {
+  font-size: 5rem;
+  font-family: chonko, sans-serif;
+}
+
+.chonko {
+  font-family: chonko, sans-serif;
+}
+
+.rival {
+  font-family: rival-sans, sans-serif;
+}

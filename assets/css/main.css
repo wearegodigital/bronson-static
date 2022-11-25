@@ -4,3 +4,265 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* -----------------------------------------------------------------------------
+* Below Options
+* --------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+* Typography
+* --------------------------------------------------------------------------- */
+
+/**
+ * CHONKO
+ */
+
+ @font-face {
+    font-family: 'chonko';
+    src: url('../fonts/CHONKO-DISPLAY.otf') format('opentype'),
+        url('../fonts/CHONKO-DISPLAY.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* -----------------------------------------------------------------------------
+* Global Variables
+* --------------------------------------------------------------------------- */
+  :root {
+    --primary-color: rgb(41,112,235);
+    --secondary-color: rgb(250,227,214);
+    --accent-1-color: rgb(140,191,214);
+    --accent-2-color: rgb(232,135,128);
+    --accent-3-color: rgb(232,184,135);
+    --text-color: rgb(38,37,35);
+  
+    --black-1: #0E161A;
+    --black-2: #03030c;
+    --black-3: #0a0e0d;
+  
+    --dark-grey: rgb(88,88,86);
+    --medium-grey: rgb(138,139,138);
+    --light-grey: rgb(188,189,189);
+    --off-white: rgb(238,240,240);
+    --white: rgb(255,255,255);
+  }
+
+/* -----------------------------------------------------------------------------
+* Typography
+* --------------------------------------------------------------------------- */
+  
+  body {
+    font-family: rival-sans, sans-serif; 
+  }
+  
+  small, .small {
+    font-size: 0.75rem;
+  }
+  
+  p, .p {
+    font-size: 1rem;
+  }
+  
+  h6, .h6 {
+    font-size: 1rem;
+  }
+  
+  h5, .h5 {
+    font-size: 1.125rem;
+  }
+  
+  h4, .h4 {
+    font-size: 1.313rem;
+  }
+  
+  h3, .h3 {
+    font-size: 1.75rem;
+  }
+  
+  h2, .h2 {
+    font-size: 2.25rem;
+  }
+  
+  h1, .h1 {
+    font-size: 3rem;
+  }
+  
+  .jumbo {
+    font-size: 4rem;
+    font-family: chonko, sans-serif;
+  }
+  
+  .mega {
+    font-size: 5rem;
+    font-family: chonko, sans-serif;
+  }
+  
+  .chonko {
+    font-family: chonko, sans-serif;
+  }
+  
+  .rival {
+    font-family: rival-sans, sans-serif;
+  }
+
+/* -----------------------------------------------------------------------------
+* Base
+* --------------------------------------------------------------------------- */
+  .black-bg {
+    background-color:  var(--black-1);
+    animation: changeBackgroundColor 15s infinite;
+  }
+  
+  @keyframes changeBackgroundColor {
+    0% {
+      background-color: var(--black-1);
+    }
+    33% {
+      background-color: var(--black-2);
+    }
+    66% {
+      background-color: var(--black-3);
+    }
+    100% {
+      background-color: var(--black-1);
+    }
+  }
+  
+  body {
+    margin: 0;
+    font-weight: 700;
+    font-style: normal;
+    overflow-x: hidden;
+  }
+  
+  .items {
+    margin: 0;
+    width: auto;
+    display: inline-block;
+    white-space: nowrap;
+    height: 100vh;
+    position: relative;
+    overflow-y: hidden;
+  }
+  
+  .items .item {
+    width: 90vmin;
+    height: 90vmin;
+    margin: 5px;
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    margin-right: 5vw;
+  }
+  
+  .items .item .item-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .items .item img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  
+  .item:nth-child(3n+1){
+    top: -10%;
+  }
+  
+  .item:nth-child(3n+2){
+    top: 40%;
+  }
+  
+  .item:nth-child(3n){
+    top: 10%;
+  }
+  
+  .item:nth-child(5n+1) img{
+    transform: scale(0.9)
+  }
+  
+  .item:nth-child(5n+2) img{
+    transform: scale(1.2)
+  }
+  
+  .item:nth-child(5n+3) img{
+    transform: scale(0.8)
+  }
+  
+  .item:nth-child(5n+4) img{
+    transform: scale(1.125);
+  }
+  
+  .item:nth-child(5n) img{
+    transform: scale(1);
+  }
+  
+  .logo-container {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    width: calc(100vw - 64px);
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
+  
+  @media all and (min-width: 1024px){
+    .logo-container {
+      max-width: 70vw;
+    }
+  }
+  
+  .logo-container.logo-container-overlay {
+    mix-blend-mode: unset;
+    z-index: 55;
+    opacity: 0.65;
+  }
+  
+  .logo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .page-interface-index, .page-interface-home, .page-interface-about, .page-interface-scroll-number {
+    position: fixed;
+    writing-mode: vertical-rl;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    color: white;
+    mix-blend-mode: difference;
+    z-index: 50;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  
+  .page-interface-index, .page-interface-home {
+    top: 32px;
+  }
+  
+  .page-interface-scroll-number, .page-interface-about {
+    bottom: 32px;
+  }
+  
+  .page-interface-index, .page-interface-about {
+    right: 32px;
+  }
+  
+  .page-interface-home, .page-interface-scroll-number {
+    left: 32px;
+  }
+  
+  .page-interface-overlay {
+    mix-blend-mode: unset;
+    pointer-events: none;
+    z-index: 55;
+    opacity: 0.65;
+  }
