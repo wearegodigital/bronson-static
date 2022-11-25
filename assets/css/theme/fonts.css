@@ -1,0 +1,19 @@
+/* -----------------------------------------------------------------------------
+* This file contains fonts.
+* --------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+* Loading Fonts
+* --------------------------------------------------------------------------- */
+
+/**
+ * CHONKO
+ */
+
+@font-face {
+  font-family: 'chonko';
+  src: url('../assets/fonts/CHONKO-DISPLAY.otf') format('opentype'),
+      url('../assets/fonts/CHONKO-DISPLAY.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
