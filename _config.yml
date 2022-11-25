@@ -1,5 +1,5 @@
-url: ''
-baseurl: ''
+url: 'https://bronson-static.github.io'
+baseurl: 'bronson-static'
 title: 'Jekyllwind'
 
 plugins:
