@@ -1,6 +1,6 @@
 url: 'https://wearegodigital.github.io'
-baseurl: ''
-title: 'Jekyllwind'
+baseurl: 'bronson-static'
+title: 'Bronson Farr'
 
 plugins:
   - jekyll-postcss

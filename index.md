@@ -1,18 +1,6 @@
 ---
 layout: default
-title: "Happy coding"
+title: "Interactive Mockup"
 ---
-
-<div class="py-24 max-w-xl mx-auto text-center">
-  <h1 class="text-xl mb-12">
-    <span class="text-4xl block">
-      Jekyllwind
-    </span>
-
-    <span class="uppercase font-light">
-      A Jekyll + Tailwind CSS boilerplate
-    </span>
-  </h1>
-
-  <h2>Build something beautiful with it ✌️</h2>
-</div>
+{% include modules/navigation.html css-classes="text-white text-h5 font-800 font-display" %}
+{% include modules/home-hero.html %}
