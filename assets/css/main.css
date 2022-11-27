@@ -266,3 +266,74 @@
     z-index: 55;
     opacity: 0.65;
   }
+
+/* -----------------------------------------------------------------------------
+* Button
+* --------------------------------------------------------------------------- */
+.btn {
+  @apply inline-block cursor-pointer;
+}
+
+.go-btn {
+  @apply inline-block cursor-pointer py-2 px-8 bg-white text-black font-semibold transition-opacity opacity-100 duration-500 border-2 border-white text-h4 uppercase;
+
+  &:hover {
+    @apply opacity-60;
+  }
+}
+
+.go-btn-alt {
+  @apply inline-block cursor-pointer py-2 px-8 bg-white text-black font-semibold transition-colors duration-500 border-2 border-white;
+
+  &:hover {
+    @apply bg-black text-white;
+  }
+}
+.btn.highlighted-text {
+  .highlight-content {
+    background-size: 0% 35% !important;
+    transition:  background-size 0.5s ease-in-out;
+  }
+
+  &:hover .highlight-content {
+    background-size:100% 35% !important;
+  }
+
+  &.arrow-left .highlight-content {
+    background-position: right bottom !important;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+* Portfolio Tease
+* --------------------------------------------------------------------------- */
+
+.portfolio-tease {
+  height: 150vh;
+  width: 100vw;
+}
+
+.portfolio-tease.layout-1 .portfolio-images #image-1 {
+  max-width: 640px;
+  top: calc(50% - 400px);
+  left: calc(50vw - 320px);
+  z-index: 3;
+  @apply absolute;
+}
+
+.portfolio-tease.layout-1 .portfolio-images #image-2 {
+  max-width: 560px;
+  top: calc(50% - 320px);
+  right: -4rem;
+  z-index: 2;
+  @apply absolute;
+}
+
+
+.portfolio-tease.layout-1 .portfolio-images #image-3 {
+  max-width: 400px;
+  top: calc(50% - 320px);
+  left: 4rem;
+  z-index: 1;
+  @apply absolute;
+}

@@ -1,0 +1,24 @@
+<div class="portfolio-info mix-blend-difference fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-30">
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="portfolio-title {{ include.css_classes}}">
+            {{ include.text }}
+        </h1>
+        {% include elements/button.html 
+            text="View More" 
+            link=include.url
+            css_classes="mt-8" 
+        %}
+    </div>
+</div>
+<div class="portfolio-info opacity-60 fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-40">
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="portfolio-title {{ include.css_classes}}">
+            {{ include.text }}
+        </h1>
+        {% include elements/button.html 
+            text="View More" 
+            link=include.url
+            css_classes="mt-8" 
+        %}
+    </div>
+</div>

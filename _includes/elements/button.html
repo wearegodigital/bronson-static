@@ -1,0 +1,45 @@
+<!-------------------------
+  Button Element
+  @since 0.1.0
+  @included_in block/button
+  @extends n/a
+--------------------------->
+
+{% if include.uuid %}
+    {% assign uuid = include.uuid %}
+{% else %}
+    {% assign min = 65 %}
+    {% assign max = 80 %}
+    {% assign diff = max | minus: min %}
+    {% assign uuid = "now" | date: "%N" | modulo: diff | plus: min %}
+{% endif %}
+
+{% if include.font_weight %}
+    {% assign font_weight = include.font_weight %}
+{% else %}
+    {% assign font_weight =  "400"%}
+{% endif %}
+
+{% if include.text_size %}
+    {% assign text_size = include.text_size %}
+{% else %}
+    {% assign text_size = "p" %}
+{% endif %}
+
+{% if include.button_style %}
+    {% assign button_style = include.button_style %}
+{% else %}
+    {% assign button_style = "go-btn" %}
+{% endif %}
+
+{% if include.css_classes %}
+    {% assign css_classes = include.css_classes %}
+{% else %}
+    {% assign css_classes = "" %}
+{% endif %}
+
+{% if include.text and include.link %}
+    <a id="btn-{{ uuid }}" href="{{ include.link }}" class="btn {{ button_style }} no-underline text-{{ text_size }} font-{{ font_weight }} {{ css_classes }}">
+        {{ include.text }}
+    </a>
+{% endif %}
