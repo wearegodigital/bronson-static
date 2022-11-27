@@ -57,6 +57,71 @@ $('document').ready( function(){
        slowFlag = 0;
      }, 4000);
   });
+
+  /* ------Great Horned Owl Sequence------  */
+  gsap.set(".portfolio-tease.layout-1 #image-1", { yPercent: -20});
+  gsap.set(".portfolio-tease.layout-1 #image-2", { yPercent: 20});
+  gsap.set(".portfolio-tease.layout-1 #image-3", { yPercent: 80});
+  gsap.set(".portfolio-tease.layout-1", { yPercent: 5});
+
+  gsap.to(".portfolio-tease.layout-1 #image-1", {
+    yPercent: 20,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".portfolio-tease.layout-1",
+      scrub: 1
+    }, 
+  });
+
+  gsap.to(".portfolio-tease.layout-1 #image-2", {
+    yPercent: -20,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".portfolio-tease.layout-1",
+      scrub: 1
+    }, 
+  });
+
+
+  gsap.to(".portfolio-tease.layout-1 #image-3", {
+    yPercent: -60,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".portfolio-tease.layout-1",
+      scrub: 1
+    }, 
+  });
+
+  gsap.to(".portfolio-tease.layout-1", {
+    yPercent: -5,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".portfolio-tease.layout-1",
+      end: "bottom center",
+      scrub: 1
+    }, 
+  });
+
+  gsap.utils.toArray('.portfolio-tease').forEach((section, i) => {
+  
+    if(section.getAttribute('data-bg') !== null) {
+      
+      var colorAttr = section.getAttribute('data-bg');
+      
+      gsap.to("body", {
+        backgroundColor: colorAttr,
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: section,
+          scrub: true,
+          start:'top bottom',
+          end: '+=100%'
+        }
+      });
+  
+    }
+    
+  });
   
 });
 
