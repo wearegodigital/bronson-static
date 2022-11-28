@@ -141,8 +141,8 @@
     display: inline-block;
     white-space: nowrap;
     height: 100vh;
+    min-height: 56.25vw;
     position: relative;
-    overflow-y: hidden;
   }
   
   .items .item {
@@ -309,8 +309,14 @@
 * --------------------------------------------------------------------------- */
 
 .portfolio-tease {
-  height: 150vh;
+  height: 75vw;
+  min-height: 100vh;
   width: 100vw;
+  margin-top: 10rem;
+}
+
+.portfolio-items {
+  padding-top: 25vh;
 }
 
 .portfolio-tease.layout-1 .portfolio-images #image-1 {
@@ -336,4 +342,61 @@
   left: 4rem;
   z-index: 1;
   @apply absolute;
+}
+
+.portfolio-tease.layout-2 .portfolio-images #image-1 {
+  max-width: 560px;
+  top: calc(50% - 80px);
+  left: calc(50vw - 280px);
+  z-index: 3;
+  @apply absolute;
+}
+
+.portfolio-tease.layout-2 .portfolio-images #image-2 {
+  max-width: 560px;
+  top: calc(100% - 128px);
+  right: calc(50% - 720px);
+  z-index: 2;
+  @apply absolute;
+}
+
+
+.portfolio-tease.layout-2 .portfolio-images #image-3 {
+  max-width: 480px;
+  top: calc(50% - 240px);
+  left: calc(50% - 640px);
+  z-index: 1;
+  @apply absolute;
+}
+
+/* -----------------------------------------------------------------------------
+* Dark Mode
+* --------------------------------------------------------------------------- */
+.page-interface-element {
+  transition: color 0.5s ease-in-out;
+}
+
+.dark-mode .page-interface-element {
+  color: var(--black-1) !important;
+  opacity: 0.9 !important;
+}
+
+.portfolio-tease.dark-mode .portfolio-title {
+  color: var(--black-1) !important;
+  opacity: 1 !important;
+}
+
+.portfolio-tease.dark-mode .go-btn {
+  border-color: var(--black-1) !important;
+  background-color: var(--black-1) !important;
+  color: var(--white) !important;
+  opacity: 1 !important;
+}
+
+.portfolio-tease.dark-mode .portfolio-info {
+  opacity: 0.9 !important;
+}
+
+.portfolio-tease.dark-mode .portfolio-info.mix-blend-difference {
+  display: none !important;
 }

@@ -1,8 +1,10 @@
-<div class="portfolio-info mix-blend-difference fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-30">
+<div class="portfolio-info mix-blend-difference absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-30">
     <div class="flex flex-col justify-center items-center">
-        <h1 class="portfolio-title {{ include.css_classes}}">
-            {{ include.text }}
-        </h1>
+        <a href="{{ include.url }}">
+            <h1 class="portfolio-title {{ include.css_classes}}">
+                {{ include.text }}
+            </h1>
+        </a>
         {% include elements/button.html 
             text="View More" 
             font_weight="300"
@@ -11,11 +13,13 @@
         %}
     </div>
 </div>
-<div class="portfolio-info opacity-60 fixed top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-40">
-    <div class="flex flex-col justify-center items-center">
-        <h1 class="portfolio-title {{ include.css_classes}}">
-            {{ include.text }}
-        </h1>
+<div class="portfolio-info opacity-60 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-40">
+    <div href="{{ include.url }}" class="flex flex-col justify-center items-center">
+        <a href="{{ include.url }}">
+            <h1 class="portfolio-title {{ include.css_classes}}">
+                {{ include.text }}
+            </h1>
+        </a>
         {% include elements/button.html 
             text="View More" 
             font_weight="300"

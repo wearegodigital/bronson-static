@@ -10,6 +10,7 @@ title: "Interactive Mockup"
         slug="theragun" 
         url="#life"
         layout=1
+        display="light"
         bg="#A86BAC"
         image_1="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/0a071075-0c7e-4682-bbee-7704bd4beb28/44078BD1-5B19-48D7-A24E-E35CE955BFC9.jpeg"
         image_2="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/e0f5e0af-8e5c-457d-a82d-d3481dbdbe08/Andrew_1313.jpg"
@@ -20,7 +21,8 @@ title: "Interactive Mockup"
         title="Blink Fitness" 
         slug="blink-fitness" 
         url="#love"
-        layout=1
+        layout=2
+        display="dark"
         bg="#FEBDA6"
         image_1="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/1578857159044-T2HHOHYQPFU3D2KWJBQJ/Screen+Shot+2020-01-12+at+2.25.36+PM.png"
         image_2="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/1625238325836-XFMYBBA1ED4URT5G60W2/Blink_GIF_Image_Freeweights-2.jpg"
