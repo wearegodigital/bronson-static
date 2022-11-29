@@ -10,17 +10,17 @@ $('document').ready( function(){
   var normalScale = 1;
   
   // Adding duplicates of items to make transition smoother
-  $('#cloned').append( $('#cloned .item').clone() );
+  $('#cloned').append( $('#cloned .media-item').clone() );
   
   // Setting Timelines
   tl1 = new TimelineMax({repeat: -1});
-  tl1.to( $('#cloned .item:nth-child(3n+1)'), tl1speed, { x:-($('#cloned').width()), ease: Power0.easeNone });
+  tl1.to( $('#cloned .media-item:nth-child(3n+1)'), tl1speed, { x:-($('#cloned').width()), ease: Power0.easeNone });
   
   tl2 = new TimelineMax({repeat: -1});
-  tl2.to( $('#cloned .item:nth-child(3n+2)'), tl2speed, { x:-($('#cloned').width()), ease: Power0.easeNone });
+  tl2.to( $('#cloned .media-item:nth-child(3n+2)'), tl2speed, { x:-($('#cloned').width()), ease: Power0.easeNone });
   
   tl3 = new TimelineMax({repeat: -1});
-  tl3.to( $('#cloned .item:nth-child(3n)'), tl3speed, { x:-($('#cloned').width()), ease: Power0.easeNone });
+  tl3.to( $('#cloned .media-item:nth-child(3n)'), tl3speed, { x:-($('#cloned').width()), ease: Power0.easeNone });
   
   // Setting timescale to slow on load
   var slowFlag = 0;
@@ -84,6 +84,7 @@ $('document').ready( function(){
   /** Setting Portfolio layouts array */
   var portfolioLayouts = [
     {section_speed: 5, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 20, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
+    {section_speed: 10, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 40, image2_scale: 1.5, image3_speed: -40, image3_scale: 1},
     {section_speed: 10, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 40, image2_scale: 1.5, image3_speed: -40, image3_scale: 1}
   ];
 
@@ -108,7 +109,7 @@ $('document').ready( function(){
       scrollTrigger: {
         trigger: section,
         end: "bottom center",
-        scrub: 1,
+        scrub: 0.5,
         toggleClass: "active",
       }, 
     });
@@ -118,7 +119,7 @@ $('document').ready( function(){
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        scrub: 1
+        scrub: 0.5
       }, 
     });
 
@@ -127,7 +128,7 @@ $('document').ready( function(){
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        scrub: 1
+        scrub: 0.5
       }, 
     });
 
@@ -136,7 +137,7 @@ $('document').ready( function(){
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        scrub: 1
+        scrub: 0.5
       }, 
     });
   });
@@ -147,17 +148,18 @@ $('document').ready( function(){
       
       var colorAttr = section.getAttribute('data-bg');
       var displayAttr = section.getAttribute('data-display');
+      var lastDisplayAttr = section.getAttribute('data-last-display');
+      var nextDisplayAttr = section.getAttribute('data-next-display');
       
       gsap.to("body", {
         backgroundColor: colorAttr,
         immediateRender: false,
         scrollTrigger: {
           trigger: section,
-          scrub: true,
+          scrub: 0.5,
           start:'top bottom',
           end: '+=100%',
           onEnter: function(){
-            console.log(displayAttr);
             if(displayAttr == "dark"){
               $("body").addClass("dark-mode");
             } else {
@@ -165,10 +167,19 @@ $('document').ready( function(){
             }
           },
           onEnterBack: function(){
-            console.log(displayAttr);
             if(displayAttr == "dark"){
               $("body").addClass("dark-mode");
             } else {
+              $("body").removeClass("dark-mode");
+            }
+          },
+          onLeave: function(){
+            if(nextDisplayAttr == "light"){
+              $("body").removeClass("dark-mode");
+            }
+          },
+          onLeaveBack: function(){
+            if(lastDisplayAttr == "light"){
               $("body").removeClass("dark-mode");
             }
           },
@@ -182,71 +193,32 @@ $('document').ready( function(){
 });
 
 function mouseMoveFunc(evt) {
-  const maxY1 = gsap.getProperty(".items", "height") * -0.075;
-  const maxX1 = gsap.getProperty(".items", "width") * -0.0025;
-  const maxY2 = gsap.getProperty(".items", "height") * -0.135;
-  const maxX2 = gsap.getProperty(".items", "width") * -0.0045;
-  const maxY3 = gsap.getProperty(".items", "height") * -0.075;
-  const maxX3 = gsap.getProperty(".items", "width") * -0.001;
-  const clonedX = gsap.getProperty(".items", "width") * -0.005;
+  gsap.utils.toArray('[data-mouse-x],[data-mouse-y]').forEach((section, i) => {
   
-  const percentY = gsap.utils.normalize(0, innerHeight, evt.pageY);
-  const percentX = gsap.utils.normalize(0, innerWidth, evt.pageX) - 0.5;
-  
-  gsap.to("#cloned .item:nth-child(3n+1)", {
-    duration: 1,
-    y: percentY * maxY1 - maxY1 / 2
-  });
-  
-  gsap.to("#cloned .item:nth-child(3n+2)", {
-    duration: 1,
-    y: percentY * maxY2 - maxY2 / 2
-  });
-  
-  gsap.to("#cloned .item:nth-child(3n)", {
-    duration: 1,
-    y: percentY * maxY3 - maxY3 / 2
-  });
+    if(section.getAttribute('data-mouse-x') !== null ) {
+      const xFactor = section.getAttribute('data-mouse-x');
+      const maxX = gsap.getProperty(".navigation", "width") * xFactor;
+      const percentX = gsap.utils.normalize(0, innerWidth, evt.pageX) - 0.5;
 
-  gsap.to("#cloned", {
-    duration: 1,
-    x: percentX * clonedX - clonedX / 2
-  });
-  
-  gsap.to(".portfolio-tease:nth-child(2n+1) .portfolio-images .image-container:nth-child(3n+1)", {
-    duration: 2,
-    x: percentX * maxX1 - maxX1 / 20,
-    y: percentY * maxY1 - maxY1 / 2
-  });
-  
-  gsap.to(".portfolio-tease:nth-child(2n+1) .portfolio-images .image-container:nth-child(3n+2)", {
-    duration: 2,
-    x: percentX * maxX2 - maxX2 / 20,
-    y: percentY * maxY2 - maxY2 / 2
-  });
-  
-  gsap.to(".portfolio-tease:nth-child(2n+1) .portfolio-images .image-container:nth-child(3n)", {
-    duration: 2,
-    x: percentX * maxX3 - maxX3 / 20,
-    y: percentY * maxY3 - maxY3 / 2
-  });
-  
-  gsap.to(".portfolio-tease:nth-child(2n) .portfolio-images .image-container:nth-child(3n+1)", {
-    duration: 2,
-    x: -1 * percentX * maxX1 - maxX1 / 20,
-    y: percentY * maxY1 - maxY1 / 2
-  });
-  
-  gsap.to(".portfolio-tease:nth-child(2n) .portfolio-images .image-container:nth-child(3n+2)", {
-    duration: 2,
-    x: -1 * percentX * maxX2 - maxX2 / 20,
-    y: percentY * maxY2 - maxY2 / 2
-  });
-  
-  gsap.to(".portfolio-tease:nth-child(2n) .portfolio-images .image-container:nth-child(3n)", {
-    duration: 2,
-    x: -1 * percentX * maxX3 - maxX3 / 20,
-    y: percentY * maxY3 - maxY3 / 2
+      gsap.to(section, {
+        duration: 2,
+        immediateRender: false,
+        x: percentX * maxX - maxX / 20
+      });
+    }
+
+    if(section.getAttribute('data-mouse-y') !== null ) {
+      const yFactor = section.getAttribute('data-mouse-y');
+      const maxY = gsap.getProperty(".navigation", "width") * yFactor;
+      const percentY = gsap.utils.normalize(0, innerHeight, evt.pageY);
+
+      gsap.to(section, {
+        duration: 2,
+        immediateRender: false,
+        y: percentY * maxY - maxY / 20
+      });
+    }
+    
   });
 }
 
