@@ -81,94 +81,64 @@ $('document').ready( function(){
    * Portfolio Images Scroll Animation
    * ---------------------------------------- */
 
-  /* ------ Layout 1 ------  */
-  gsap.set(".portfolio-tease.layout-1 #image-1", { yPercent: -20});
-  gsap.set(".portfolio-tease.layout-1 #image-2", { yPercent: 20});
-  gsap.set(".portfolio-tease.layout-1 #image-3", { yPercent: 80});
-  gsap.set(".portfolio-tease.layout-1", { yPercent: 5});
+  /** Setting Portfolio layouts array */
+  var portfolioLayouts = [
+    {section_speed: 5, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 20, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
+    {section_speed: 10, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 40, image2_scale: 1.5, image3_speed: -40, image3_scale: 1}
+  ];
 
-  gsap.to(".portfolio-tease.layout-1 #image-1", {
-    yPercent: 20,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-1",
-      scrub: 1
-    }, 
-  });
+  gsap.utils.toArray(".portfolio-tease").forEach((section, i) => {
+    /*** Getting layout of sections from data attribute ***/
+    var layoutIndex = section.getAttribute('data-layout') - 1;
+    var layout = portfolioLayouts[layoutIndex]
 
-  gsap.to(".portfolio-tease.layout-1 #image-2", {
-    yPercent: -20,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-1",
-      scrub: 1
-    }, 
-  });
+    /*** Getting child elements ***/
+    let image1 = section.querySelector("#image-1");
+    let image2 = section.querySelector("#image-2");
+    let image3 = section.querySelector("#image-3");
 
+    gsap.set(section, { yPercent: layout.section_speed});
+    gsap.set(image1, { yPercent: layout.image1_speed});
+    gsap.set(image2, { yPercent: layout.image2_speed});
+    gsap.set(image3, { yPercent: layout.image3_speed});
 
-  gsap.to(".portfolio-tease.layout-1 #image-3", {
-    yPercent: -60,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-1",
-      scrub: 1
-    }, 
-  });
+    gsap.to(section, {
+      yPercent:  layout.section_speed * -1 * layout.section_scale,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        end: "bottom center",
+        scrub: 1,
+        toggleClass: "active",
+      }, 
+    });
 
-  gsap.to(".portfolio-tease.layout-1", {
-    yPercent: -5,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-1",
-      end: "bottom center",
-      scrub: 1,
-      toggleClass: "active",
-    }, 
-  });
+    gsap.to(image1, {
+      yPercent: layout.image1_speed * -1 * layout.image1_scale,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        scrub: 1
+      }, 
+    });
 
-  /* ------ Layout 2 ------  */
-  gsap.set(".portfolio-tease.layout-2 #image-1", { yPercent: -20});
-  gsap.set(".portfolio-tease.layout-2 #image-2", { yPercent: 40});
-  gsap.set(".portfolio-tease.layout-2 #image-3", { yPercent: -40});
-  gsap.set(".portfolio-tease.layout-2", { yPercent: 10});
+    gsap.to(image2, {
+      yPercent:  layout.image2_speed * -1 * layout.image2_scale,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        scrub: 1
+      }, 
+    });
 
-  gsap.to(".portfolio-tease.layout-2 #image-1", {
-    yPercent: 20,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-2",
-      scrub: 1
-    }, 
-  });
-
-  gsap.to(".portfolio-tease.layout-2 #image-2", {
-    yPercent: -120,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-2",
-      scrub: 1
-    }, 
-  });
-
-
-  gsap.to(".portfolio-tease.layout-2 #image-3", {
-    yPercent: 60,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-2",
-      scrub: 1
-    }, 
-  });
-
-  gsap.to(".portfolio-tease.layout-2", {
-    yPercent: -10,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".portfolio-tease.layout-2",
-      end: "bottom center",
-      scrub: 1,
-      toggleClass: "active",
-    }, 
+    gsap.to(image3, {
+      yPercent: layout.image3_speed * -1 * layout.image3_scale,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        scrub: 1
+      }, 
+    });
   });
 
   gsap.utils.toArray('.portfolio-tease').forEach((section, i) => {
