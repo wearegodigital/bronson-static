@@ -1,5 +1,47 @@
-<!-- Portfolio Tease - Start -->
-<section id="portfolio-{{ include.slug }}" class="portfolio-tease layout-{{ include.layout }} {{ include.display }}-mode relative" data-layout="{{ include.layout }}" data-bg="{{ include.bg }}" data-display="{{ include.display }}">
+{% assign alternating_count = include.count | modulo: 2 %}
+
+{% case alternating_count %}
+  {% when 1 %}
+    {% assign mouse_x_image_1 = "-0.025" %}
+    {% assign mouse_y_image_1 = "-0.075" %}
+    {% assign mouse_x_image_2 = "-0.045" %}
+    {% assign mouse_y_image_2 = "-0.135" %}
+    {% assign mouse_x_image_3 = "-0.01" %}
+    {% assign mouse_y_image_3 = "-0.075" %}
+  {% else %}
+    {% assign mouse_x_image_1 = "0.025" %}
+    {% assign mouse_y_image_1 = "-0.075" %}
+    {% assign mouse_x_image_2 = "0.045" %}
+    {% assign mouse_y_image_2 = "-0.135" %}
+    {% assign mouse_x_image_3 = "0.01" %}
+    {% assign mouse_y_image_3 = "-0.075" %}
+{% endcase %}
+
+{% if include.mouse_x_image_1 %}
+  {% assign mouse_x_image_1 = include.mouse_x_image_1 %}
+{% endif %}
+
+{% if include.mouse_y_image_1 %}
+  {% assign mouse_y_image_1 = include.mouse_y_image_1 %}
+{% endif %}
+
+{% if include.mouse_x_image_2 %}
+  {% assign mouse_x_image_2 = include.mouse_x_image_2 %}
+{% endif %}
+
+{% if include.mouse_y_image_2 %}
+  {% assign mouse_y_image_2 = include.mouse_y_image_2 %}
+{% endif %}
+
+{% if include.mouse_x_image_3 %}
+  {% assign mouse_x_image_3 = include.mouse_x_image_3 %}
+{% endif %}
+
+{% if include.mouse_y_image_3 %}
+  {% assign mouse_y_image_3 = include.mouse_y_image_3 %}
+{% endif %}
+
+<section id="portfolio-{{ include.slug }}" class="portfolio-tease layout-{{ include.layout }} {{ include.display }}-mode" data-layout="{{ include.layout }}" data-bg="{{ include.bg }}" data-display="{{ include.display }}" data-last-display="{{ include.last_display }}" data-next-display="{{ include.next_display }}">
     {% include elements/portfolio-information.html
       text=include.title
       slug=include.slug
@@ -7,15 +49,29 @@
       css_classes="mega text-white font-800 font-display text-center"
     %}
     <div class="portfolio-images">
-      <a href="{{ include.url }}" id="image-1" class="image-container block">
-        <img src="{{ include.image_1 }}"/>
-      </a>
-      <a href="{{ include.url }}" id="image-2" class="image-container">
-        <img src="{{ include.image_2 }}"/>
-      </a>
-      <a href="{{ include.url }}" id="image-3" class="image-container">
-        <img src="{{ include.image_3 }}"/>
-      </a>
+      {% include elements/media-item.html 
+          title=include.title
+          media=include.image_1  
+          url=include.url
+          mouse_x=mouse_x_image_1
+          mouse_y=mouse_y_image_1
+          uuid=1
+      %}
+      {% include elements/media-item.html 
+          title=include.title
+          media=include.image_2  
+          url=include.url
+          mouse_x=mouse_x_image_2
+          mouse_y=mouse_y_image_2
+          uuid=2
+      %}
+      {% include elements/media-item.html 
+          title=include.title
+          media=include.image_3  
+          url=include.url
+          mouse_x=mouse_x_image_3
+          mouse_y=mouse_y_image_3
+          uuid=3
+      %}
     </div>
 </section>
-<!-- Portfolio Tease - End -->

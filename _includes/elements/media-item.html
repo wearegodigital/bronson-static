@@ -1,0 +1,33 @@
+{% if include.uuid %}
+    {% assign uuid = include.uuid %}
+{% else %}
+    {% assign min = 65 %}
+    {% assign max = 80 %}
+    {% assign diff = max | minus: min %}
+    {% assign uuid = "now" | date: "%N" | modulo: diff | plus: min %}
+{% endif %}
+
+{% if include.css_classes %}
+    {% assign css_classes = include.css_classes %}
+{% else %}
+    {% assign css_classes = "" %}
+{% endif %}
+
+{% if include.mouse_x %}
+    {% assign mouse_x = include.mouse_x %}
+{% else %}
+    {% assign mouse_x = false %}
+{% endif %}
+
+{% if include.mouse_y %}
+    {% assign mouse_y = include.mouse_y %}
+{% else %}
+    {% assign mouse_y = false %}
+{% endif %}
+
+
+<a href="{{ include.url }}" id="item-{{ include.uuid }}" class="media-item media-item-{{ include.uuid }} block {{ css_classes }}"{% if include.new_tab == true %} target="_blank"{% endif %} title="{{ include.title }}"{% if mouse_x != false %} data-mouse-x="{{ mouse_x }}"{% endif %} {% if mouse_y != false %}data-mouse-y="{{ mouse_y }}"{% endif %}>
+    <div class="media-item-container">
+        <img src="{{ include.media }}" class="{{ include.image_css }}"/>
+    </div>
+</a>

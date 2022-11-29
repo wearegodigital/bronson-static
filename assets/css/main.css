@@ -135,7 +135,7 @@
     overflow-x: hidden;
   }
   
-  .items {
+  .hero-items {
     margin: 0;
     width: auto;
     display: inline-block;
@@ -145,7 +145,7 @@
     position: relative;
   }
   
-  .items .item {
+  .hero-items .media-item {
     width: 90vmin;
     height: 90vmin;
     margin: 5px;
@@ -155,13 +155,13 @@
     margin-right: 5vw;
   }
   
-  .items .item .item-container {
+  .hero-items .media-item .media-item-container {
     width: 100%;
     height: 100%;
     position: relative;
   }
   
-  .items .item img{
+  .hero-items .media-item img{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -171,35 +171,35 @@
     cursor: pointer;
   }
   
-  .item:nth-child(3n+1){
+  .hero-items .media-item:nth-child(3n+1){
     top: -10%;
   }
   
-  .item:nth-child(3n+2){
+  .hero-items .media-item:nth-child(3n+2){
     top: 40%;
   }
   
-  .item:nth-child(3n){
+  .hero-items .media-item:nth-child(3n){
     top: 10%;
   }
   
-  .item:nth-child(5n+1) img{
+  .hero-items .media-item:nth-child(5n+1) img{
     transform: scale(0.9)
   }
   
-  .item:nth-child(5n+2) img{
+  .hero-items .media-item:nth-child(5n+2) img{
     transform: scale(1.2)
   }
   
-  .item:nth-child(5n+3) img{
+  .hero-items .media-item:nth-child(5n+3) img{
     transform: scale(0.8)
   }
   
-  .item:nth-child(5n+4) img{
+  .hero-items .media-item:nth-child(5n+4) img{
     transform: scale(1.125);
   }
   
-  .item:nth-child(5n) img{
+  .hero-items .media-item:nth-child(5n) img{
     transform: scale(1);
   }
   
@@ -318,54 +318,78 @@
   padding-top: 25vh;
 }
 
-.portfolio-tease.layout-1 .portfolio-images #image-1 {
-  max-width: 640px;
-  top: calc(50% - 400px);
-  left: calc(50vw - 320px);
+/****** Layouts ******/
+
+/** Layout: 1 **/
+.portfolio-tease.layout-1 .portfolio-images .media-item-1 {
+  max-width: 50vw;
+  top: calc(50% - 30vw);
+  left: 25vw;
   z-index: 3;
   @apply absolute;
 }
 
-.portfolio-tease.layout-1 .portfolio-images #image-2 {
-  max-width: 560px;
-  top: calc(50% - 320px);
+.portfolio-tease.layout-1 .portfolio-images .media-item-2 {
+  max-width: 45vw;
+  top: calc(50% - 20vw);
   right: -4rem;
   z-index: 2;
   @apply absolute;
 }
 
 
-.portfolio-tease.layout-1 .portfolio-images #image-3 {
-  max-width: 400px;
-  top: calc(50% - 320px);
+.portfolio-tease.layout-1 .portfolio-images .media-item-3 {
+  max-width: 30vw;
+  top: calc(50% - 15vw);
   left: 4rem;
   z-index: 1;
   @apply absolute;
 }
 
-.portfolio-tease.layout-2 .portfolio-images #image-1 {
-  max-width: 560px;
-  top: calc(50% - 80px);
-  left: calc(50vw - 280px);
+/** Layout: 2 **/
+.portfolio-tease.layout-2 .portfolio-images .media-item-1 {
+  max-width: 45vw;
+  top: calc(50% - 5vw);
+  left: calc(50vw - 22.5vw);
   z-index: 3;
   @apply absolute;
 }
 
-.portfolio-tease.layout-2 .portfolio-images #image-2 {
-  max-width: 560px;
-  top: calc(100% - 128px);
-  right: calc(50% - 720px);
+.portfolio-tease.layout-2 .portfolio-images .media-item-2 {
+  max-width: 45vw;
+  top: calc(100% - 10vw);
+  right: calc(50% - 67vw);
   z-index: 2;
   @apply absolute;
 }
 
-
-.portfolio-tease.layout-2 .portfolio-images #image-3 {
-  max-width: 480px;
-  top: calc(50% - 240px);
-  left: calc(50% - 640px);
+.portfolio-tease.layout-2 .portfolio-images .media-item-3 {
+  max-width: 40vw;
+  top: calc(50% - 20vw);
+  left: calc(50% - 50vw);
   z-index: 1;
   @apply absolute;
+}
+
+/** Layout: 3 **/
+.portfolio-tease.layout-3 .portfolio-images .media-item-1 {
+  max-width: 45vw;
+  top: calc(50% - 10vw);
+  left: 5vw;
+  z-index: 3;
+  @apply absolute;
+}
+
+.portfolio-tease.layout-3 .portfolio-images .media-item-2 {
+  max-width: 45vw;
+  top: calc(100% - 50vw);
+  right: 10vw;
+  z-index: 2;
+  @apply absolute;
+}
+
+.portfolio-tease.layout-3 .portfolio-images .media-item-3 {
+  display: none;
 }
 
 /* -----------------------------------------------------------------------------
