@@ -41,7 +41,7 @@
   {% assign mouse_y_image_3 = include.mouse_y_image_3 %}
 {% endif %}
 
-<section id="portfolio-{{ include.slug }}" class="portfolio-tease layout-{{ include.layout }} {{ include.display }}-mode" data-layout="{{ include.layout }}" data-bg="{{ include.bg }}" data-display="{{ include.display }}" data-last-display="{{ include.last_display }}" data-next-display="{{ include.next_display }}">
+<section id="portfolio-{{ include.slug }}" class="section portfolio-tease relative layout-{{ include.layout }} {{ include.display }}-mode" data-layout="{{ include.layout }}" data-bg="{{ include.bg }}" data-display="{{ include.display }}" data-last-display="{{ include.last_display }}" data-next-display="{{ include.next_display }}">
     {% include elements/portfolio-information.html
       text=include.title
       slug=include.slug

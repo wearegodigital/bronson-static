@@ -2,6 +2,7 @@
 layout: default
 title: "Interactive Mockup"
 ---
+<div id="sizer" class="w-screen h-screen hidden absolute top-0 left-0"></div>
 {% include modules/navigation.html css-classes="text-white text-h5 font-800 font-display" %}
 {% include modules/home-hero.html %}
 <div class="portfolio-items">
@@ -29,7 +30,7 @@ title: "Interactive Mockup"
         last_display="light"
         next_display="light"
         bg="#66B5C1"
-        image_1="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/6b64ec96-a7ad-4e49-8135-de67e42b1fe9/JonquelCover.png"
+        image_1="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/6b64ec96-a7ad-4e49-8135-de67e42b1fe9/JonquelCover.png?format=2500w"
         image_2="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/e73f3519-b323-4a36-aaa3-bc1d3c7da2df/20220527_JonquelJones_02_0506_38m_RGB+1.jpg"
         image_3="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/013dec9e-736f-460e-bd54-ece7073dc246/20220527_JonquelJones_02_0419_33m_RGB+1.jpg"
         css-classes="text-white font-800 font-display text-center" 
