@@ -159,6 +159,14 @@ $('document').ready( function(){
           scrub: 0.5,
           start:'top bottom',
           end: '+=100%',
+        }
+      });
+
+      gsap.to("body", {
+        scrollTrigger: {
+          trigger: section,
+          scrub: 0.5,
+          end: 'bottom center',
           onEnter: function(){
             if(displayAttr == "dark"){
               $("body").addClass("dark-mode");
