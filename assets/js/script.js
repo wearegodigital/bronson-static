@@ -94,9 +94,9 @@ $('document').ready( function(){
     var layout = portfolioLayouts[layoutIndex]
 
     /*** Getting child elements ***/
-    let image1 = section.querySelector("#image-1");
-    let image2 = section.querySelector("#image-2");
-    let image3 = section.querySelector("#image-3");
+    let image1 = section.querySelector("#item-1");
+    let image2 = section.querySelector("#item-2");
+    let image3 = section.querySelector("#item-3");
 
     gsap.set(section, { yPercent: layout.section_speed});
     gsap.set(image1, { yPercent: layout.image1_speed});
@@ -105,7 +105,7 @@ $('document').ready( function(){
 
     gsap.to(section, {
       yPercent:  layout.section_speed * -1 * layout.section_scale,
-      ease: "none",
+      ease: "sine",
       scrollTrigger: {
         trigger: section,
         end: "bottom center",
@@ -116,7 +116,7 @@ $('document').ready( function(){
 
     gsap.to(image1, {
       yPercent: layout.image1_speed * -1 * layout.image1_scale,
-      ease: "none",
+      ease: "sine",
       scrollTrigger: {
         trigger: section,
         scrub: 0.5
@@ -125,7 +125,7 @@ $('document').ready( function(){
 
     gsap.to(image2, {
       yPercent:  layout.image2_speed * -1 * layout.image2_scale,
-      ease: "none",
+      ease: "sine",
       scrollTrigger: {
         trigger: section,
         scrub: 0.5
@@ -134,7 +134,7 @@ $('document').ready( function(){
 
     gsap.to(image3, {
       yPercent: layout.image3_speed * -1 * layout.image3_scale,
-      ease: "none",
+      ease: "sine",
       scrollTrigger: {
         trigger: section,
         scrub: 0.5
@@ -197,25 +197,38 @@ function mouseMoveFunc(evt) {
   
     if(section.getAttribute('data-mouse-x') !== null ) {
       const xFactor = section.getAttribute('data-mouse-x');
-      const maxX = gsap.getProperty(".navigation", "width") * xFactor;
-      const percentX = gsap.utils.normalize(0, innerWidth, evt.pageX) - 0.5;
-
+      const maxX = gsap.getProperty(section, "width") * xFactor;
+      const percentX = gsap.utils.normalize(0, innerWidth, evt.screenX);
+      
+      //let num = percentX * maxX - maxX / 2;
+      //console.log("percentageX: " + percentX.toString());
+      //console.log("x: " + num.toString());
+      
       gsap.to(section, {
-        duration: 2,
-        immediateRender: false,
-        x: percentX * maxX - maxX / 20
+        duration: 1,
+        //repeat: 1,
+        //yoyo: true,
+        //startAt: {x: 0},
+        x: percentX * maxX - maxX / 2
       });
     }
 
     if(section.getAttribute('data-mouse-y') !== null ) {
       const yFactor = section.getAttribute('data-mouse-y');
-      const maxY = gsap.getProperty(".navigation", "width") * yFactor;
-      const percentY = gsap.utils.normalize(0, innerHeight, evt.pageY);
+      const maxY = gsap.getProperty(section, "height") * yFactor;
+      const percentY = gsap.utils.normalize(0, innerHeight, evt.screenY);
+      
+      //let yPos = gsap.utils.clamp(-maxY, maxY, percentY * maxY - maxY/ 2);
+      //let num = percentY * maxY - maxY / 2;
+      //console.log("percentageY: " + percentY.toString());
+      //console.log("y: " + num.toString());
 
       gsap.to(section, {
-        duration: 2,
-        immediateRender: false,
-        y: percentY * maxY - maxY / 20
+        duration: 1,
+        //repeat: 1,
+        //yoyo: true,
+        //startAt: {y: 0},
+        y: percentY * maxY - maxY / 2
       });
     }
     
@@ -223,5 +236,52 @@ function mouseMoveFunc(evt) {
 }
 
 window.addEventListener("mousemove", mouseMoveFunc);
+
+
+
+/***
+ * 
+ * 
+ * 
+ * function mouseLeaveFunc(e) {
+  gsap.to(section, {duration: 1, x: 0, y: 0, scale: 1, ease: "sine"});
+  gsap.to(image1, {duration: 1, x: 0, y: 0, scale: 1, ease: "sine"});
+  gsap.to(image2, {duration: 1, x: 0, y: 0, scale: 1, ease: "sine"});
+  gsap.to(image3, {duration: 1, x: 0, y: 0, scale: 1, ease: "sine"});
+ };
+
+ * window.addEventListener("mousemove", mouseMoveFunc);
+
+var timeout;
+$(document).mousemove(function(e){
+  if(timeout) clearTimeout(timeout);
+  setTimeout(callParallax.bind(null, e), 200);
+  
+});
+
+function callParallax(e){
+  gsap.utils.toArray('[data-mouse-x],[data-mouse-y]').forEach((section, i) => {
+  
+    if(section.getAttribute('data-mouse-x') !== null ) {
+      var movementX = section.getAttribute('data-mouse-x');
+      
+      TweenMax.to(section, 1, {
+        x: (gsap.getProperty(section, "left") - gsap.getProperty(section, "width")/2) / gsap.getProperty(section, "width") * movementX,
+        ease: Power2.easeOut
+      })
+    }
+
+    if(section.getAttribute('data-mouse-y') !== null ) {
+      var movementY = section.getAttribute('data-mouse-y');
+      
+      TweenMax.to(section, 1, {
+        y: (gsap.getProperty(section, "top") - gsap.getProperty(section, "height")/2) / gsap.getProperty(section, "height") * movementY,
+        ease: Power2.easeOut
+      })
+    }
+    
+  });
+}
+ */
 
 
