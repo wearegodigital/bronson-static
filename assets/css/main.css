@@ -264,7 +264,7 @@
     mix-blend-mode: unset;
     pointer-events: none;
     z-index: 55;
-    opacity: 0.65;
+    opacity: 0.85;
   }
 
 /* -----------------------------------------------------------------------------
@@ -320,13 +320,20 @@
 
 /****** Layouts ******/
 
+.portfolio-tease .portfolio-images .media-item {
+  @apply absolute;
+}
+
+.portfolio-tease .portfolio-images .media-item img {
+  max-height: 110vh;
+}
+
 /** Layout: 1 **/
 .portfolio-tease.layout-1 .portfolio-images .media-item-1 {
   max-width: 50vw;
   top: calc(50% - 30vw);
   left: 25vw;
   z-index: 3;
-  @apply absolute;
 }
 
 .portfolio-tease.layout-1 .portfolio-images .media-item-2 {
@@ -334,7 +341,6 @@
   top: calc(50% - 20vw);
   right: -4rem;
   z-index: 2;
-  @apply absolute;
 }
 
 
@@ -343,32 +349,28 @@
   top: calc(50% - 15vw);
   left: 4rem;
   z-index: 1;
-  @apply absolute;
 }
 
 /** Layout: 2 **/
 .portfolio-tease.layout-2 .portfolio-images .media-item-1 {
   max-width: 45vw;
-  top: calc(50% - 5vw);
-  left: calc(50vw - 22.5vw);
+  top: calc(50% - 22.55vw);
+  left: 27.5vw;
   z-index: 3;
-  @apply absolute;
 }
 
 .portfolio-tease.layout-2 .portfolio-images .media-item-2 {
   max-width: 45vw;
-  top: calc(100% - 10vw);
-  right: calc(50% - 67vw);
+  top: calc(50% + 10vw);
+  right: calc(50% - 50vw);
   z-index: 2;
-  @apply absolute;
 }
 
 .portfolio-tease.layout-2 .portfolio-images .media-item-3 {
   max-width: 40vw;
-  top: calc(50% - 20vw);
-  left: calc(50% - 50vw);
+  top: calc(50% - 35vw);
+  left: calc(50% - 47.5vw);
   z-index: 1;
-  @apply absolute;
 }
 
 /** Layout: 3 **/
@@ -377,7 +379,6 @@
   top: calc(50% - 10vw);
   left: 5vw;
   z-index: 3;
-  @apply absolute;
 }
 
 .portfolio-tease.layout-3 .portfolio-images .media-item-2 {
@@ -385,11 +386,121 @@
   top: calc(100% - 50vw);
   right: 10vw;
   z-index: 2;
-  @apply absolute;
 }
 
 .portfolio-tease.layout-3 .portfolio-images .media-item-3 {
   display: none;
+}
+
+/** Layout: 4 **/
+.portfolio-tease.layout-4 .portfolio-images .media-item-1 {
+  max-width: 50vw;
+  top: calc(50% - 40vw);
+  left: 5vw;
+  z-index: 3;
+}
+
+.portfolio-tease.layout-4 .portfolio-images .media-item-2 {
+  max-width: 40vw;
+  top: calc(50% - 30vw);
+  right: calc(50% - 40vw);
+  z-index: 2;
+}
+
+
+.portfolio-tease.layout-4 .portfolio-images .media-item-3 {
+  max-width: 55vw;
+  top: calc(50% + 10vw);
+  right: 4rem;
+  z-index: 1;
+}
+
+/** Layout: 5 **/
+.portfolio-tease.layout-5 .portfolio-images .media-item-1 {
+  max-width: 40vw;
+  bottom: 0;
+  left: 10vw;
+  z-index: 2;
+}
+
+
+.portfolio-tease.layout-5 .portfolio-images .media-item-2 {
+  max-width: 45vw;
+  top: calc(50% - 10vw);
+  right: 5vw;
+  z-index: 3;
+}
+
+.portfolio-tease.layout-5 .portfolio-images .media-item-3 {
+  display: none;
+}
+
+/** Layout: 6 **/
+.portfolio-tease.layout-6 .portfolio-images .media-item-1 {
+  max-width: 50vw;
+  top: calc(50% - 35vw);
+  left: 25vw;
+  z-index: 3;
+}
+
+.portfolio-tease.layout-6 .portfolio-images .media-item-2 {
+  max-width: 45vw;
+  top: calc(50% + 5vw);
+  right: 5vw;
+  z-index: 2;
+}
+
+
+.portfolio-tease.layout-6 .portfolio-images .media-item-3 {
+  max-width: 30vw;
+  top: calc(50% - 15vw);
+  left: 4rem;
+  z-index: 1;
+}
+
+/** Layout: 7 **/
+.portfolio-tease.layout-7 .portfolio-images .media-item-1 {
+  max-width: 30vw;
+  top: calc(50% - 30vw);
+  left: 35vw;
+  z-index: 3;
+}
+
+.portfolio-tease.layout-7 .portfolio-images .media-item-2 {
+  max-width: 20vw;
+  top: calc(50% - 10vw);
+  right: 5vw;
+  z-index: 2;
+}
+
+
+.portfolio-tease.layout-7 .portfolio-images .media-item-3 {
+  max-width: 20vw;
+  top: calc(50% - 5vw);
+  left: 5vw;
+  z-index: 1;
+}
+
+/** Layout: 8 **/
+.portfolio-tease.layout-8 .portfolio-images .media-item-1 {
+  max-width: 40vw;
+  bottom: 0;
+  left: 5vw;
+  z-index: 2;
+}
+
+.portfolio-tease.layout-8 .portfolio-images .media-item-2 {
+  max-width: 30vw;
+  top: calc(50% );
+  right: 5vw;
+  z-index: 3;
+}
+
+.portfolio-tease.layout-8 .portfolio-images .media-item-3 {
+  max-width: 35vw;
+  top: 15vw;
+  left: calc(50% - 12.5vw);
+  z-index: 1;
 }
 
 /* -----------------------------------------------------------------------------

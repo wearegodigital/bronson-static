@@ -1,20 +1,36 @@
 {% assign alternating_count = include.count | modulo: 2 %}
 
-{% case alternating_count %}
-  {% when 1 %}
+{% case include.layout %}
+  {% when 4 %}
     {% assign mouse_x_image_1 = "-0.025" %}
-    {% assign mouse_y_image_1 = "-0.075" %}
-    {% assign mouse_x_image_2 = "-0.045" %}
-    {% assign mouse_y_image_2 = "-0.135" %}
-    {% assign mouse_x_image_3 = "-0.01" %}
-    {% assign mouse_y_image_3 = "-0.075" %}
+    {% assign mouse_y_image_1 = "0.08" %}
+    {% assign mouse_x_image_2 = "0.065" %}
+    {% assign mouse_y_image_2 = "-0.05" %}
+    {% assign mouse_x_image_3 = "-0.08" %}
+    {% assign mouse_y_image_3 = "-0.2" %}
+  {% when 5 %}
+    {% assign mouse_x_image_1 = "-0.025" %}
+    {% assign mouse_y_image_1 = "0.08" %}
+    {% assign mouse_x_image_2 = "0.065" %}
+    {% assign mouse_y_image_2 = "-0.05" %}
+    {% assign mouse_x_image_3 = "-0.08" %}
+    {% assign mouse_y_image_3 = "-0.2" %}
   {% else %}
-    {% assign mouse_x_image_1 = "0.025" %}
-    {% assign mouse_y_image_1 = "-0.075" %}
-    {% assign mouse_x_image_2 = "0.045" %}
-    {% assign mouse_y_image_2 = "-0.135" %}
-    {% assign mouse_x_image_3 = "0.01" %}
-    {% assign mouse_y_image_3 = "-0.075" %}
+    {% if alternating_count == 1 %}
+      {% assign mouse_x_image_1 = "-0.05" %}
+      {% assign mouse_y_image_1 = "0.075" %}
+      {% assign mouse_x_image_2 = "-0.045" %}
+      {% assign mouse_y_image_2 = "0.135" %}
+      {% assign mouse_x_image_3 = "-0.035" %}
+      {% assign mouse_y_image_3 = "0.075" %}
+    {% else %}
+      {% assign mouse_x_image_1 = "0.025" %}
+      {% assign mouse_y_image_1 = "-0.075" %}
+      {% assign mouse_x_image_2 = "0.09" %}
+      {% assign mouse_y_image_2 = "-0.135" %}
+      {% assign mouse_x_image_3 = "0.01" %}
+      {% assign mouse_y_image_3 = "-0.075" %}
+    {% endif %}
 {% endcase %}
 
 {% if include.mouse_x_image_1 %}
