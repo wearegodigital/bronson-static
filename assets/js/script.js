@@ -83,9 +83,14 @@ $('document').ready( function(){
 
   /** Setting Portfolio layouts array */
   var portfolioLayouts = [
-    {section_speed: 5, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 20, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
-    {section_speed: 10, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 40, image2_scale: 1.5, image3_speed: -40, image3_scale: 1},
-    {section_speed: 10, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 40, image2_scale: 1.5, image3_speed: -40, image3_scale: 1}
+    {section_speed: 5, section_scale: 1, image1_speed: -10, image1_scale: 1, image2_speed: 30, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
+    {section_speed: 10, section_scale: 1, image1_speed: 20, image1_scale: 1, image2_speed: 60, image2_scale: 1, image3_speed: -10, image3_scale: 1},
+    {section_speed: 10, section_scale: 1, image1_speed: 10, image1_scale: 1, image2_speed: 50, image2_scale: 1, image3_speed: 25, image3_scale: 1.5},
+    {section_speed: 6, section_scale: 1.5, image1_speed: 40, image1_scale: 0.5, image2_speed: 20, image2_scale: 1, image3_speed: 60, image3_scale: 1},
+    {section_speed: 10, section_scale: 1, image1_speed: 50, image1_scale: 1, image2_speed: 10, image2_scale: 1, image3_speed: 25, image3_scale: 1.5},
+    {section_speed: 5, section_scale: 1, image1_speed: -10, image1_scale: 1, image2_speed: 30, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
+    {section_speed: 6, section_scale: 1.5, image1_speed: 40, image1_scale: 0.5, image2_speed: 20, image2_scale: 1, image3_speed: 60, image3_scale: 1},
+    {section_speed: 10, section_scale: 1, image1_speed: 50, image1_scale: 1, image2_speed: 10, image2_scale: 1, image3_speed: 25, image3_scale: 1.5},
   ];
 
   gsap.utils.toArray(".portfolio-tease").forEach((section, i) => {
@@ -213,7 +218,7 @@ function mouseMoveFunc(evt) {
       //console.log("x: " + num.toString());
       
       gsap.to(section, {
-        duration: 1,
+        duration: 2,
         //repeat: 1,
         //yoyo: true,
         //startAt: {x: 0},
@@ -232,7 +237,7 @@ function mouseMoveFunc(evt) {
       //console.log("y: " + num.toString());
 
       gsap.to(section, {
-        duration: 1,
+        duration: 2,
         //repeat: 1,
         //yoyo: true,
         //startAt: {y: 0},
