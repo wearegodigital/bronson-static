@@ -142,3 +142,5 @@ title: "Interactive Mockup"
         css-classes="text-black font-800 font-display text-center" 
     %}
 </div>
+
+{% include modules/menu-modal.html item-css-classes="font-display" %}

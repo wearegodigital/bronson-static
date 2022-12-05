@@ -47,6 +47,10 @@
     --white: rgb(255,255,255);
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
 /* -----------------------------------------------------------------------------
 * Typography
 * --------------------------------------------------------------------------- */
@@ -534,3 +538,193 @@
 .portfolio-tease.dark-mode .portfolio-info.mix-blend-difference {
   display: none !important;
 }
+
+/* ----------------------------------------
+ * Menu Modal Section
+ * ---------------------------------------- */
+
+ #modal-menu {
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+ }
+
+ #modal-menu.active {
+  z-index: 99999;
+  opacity: 1;
+  visibility: visible;
+ }
+
+ #menu {
+  margin:0;
+  background-color:#0E161A;
+  overflow-y: scroll;
+}
+
+.menu-container {
+  height: 1600vh;
+  width: 100%;
+}
+
+#menu {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#menu::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+#rolodex-menu {
+  position: absolute;
+  top: 30vw;
+  left: -25vw;
+  width: 45vw;
+  height: 45vw;
+  cursor: pointer;
+}
+
+#menu .menu-container #rolodex-menu svg {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  overflow:visible;
+}
+
+#menu .menu-container #rolodex-menu #path {
+  fill:none;
+  stroke: #FFFFFF;
+  stroke-width: 2px;
+}
+
+#menu .menu-container #rolodex-menu .menu-item {
+  position: absolute;
+  width: 16vw;
+  height: 55vw;
+  text-align: left;
+  font-weight:600;
+  color: #FFFFFF;
+  font-family: sans-serif;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+#menu .menu-container #rolodex-menu .menu-item .rotateElem h1 {
+  transform: rotate(90deg) translateX(225%) !important;
+  font-size: 2vw;
+  @apply font-display;
+  -webkit-text-stroke: 1px #ffffff;
+  text-stroke: 1px #ffffff;
+  text-shadow: none;
+}
+
+#menu .menu-container #rolodex-menu .menu-item .rotateElem h1:hover {
+  color: #0e161a;
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+}
+
+@supports((text-stroke: 2px black) or (-webkit-text-stroke: 2px black)) {
+  #menu .menu-container #rolodex-menu .menu-item .rotateElem h1:hover {
+      color: transparent;
+      -webkit-text-stroke: 1px #ffffff;
+      text-stroke: 1px #ffffff;
+      text-shadow: none;
+  }
+}
+
+@media all and (max-width: 768px){
+  #rolodex-menu {
+    top: unset;
+    bottom: -20vw;
+    left: -15vw;
+    width: 60vw;
+    height: 60vw;
+  }
+
+  #menu .menu-container #rolodex-menu .menu-item .rotateElem h1 {
+    font-size: 1rem;
+  }
+}
+
+/* ----------------------------------------
+ * Image Reveal Hover
+ * ---------------------------------------- */
+
+ .hover-reveal {
+  position: absolute;
+  z-index: -1;
+  width: 20vw;
+  height: auto;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.hover-reveal.active {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.hover-reveal__inner {
+  overflow: hidden;
+}
+
+.hover-reveal__inner,
+.hover-reveal__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hover-reveal__img {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* ----------------------------------------
+ * Menu
+ * ---------------------------------------- */
+
+ #top-level-menu ul li:after {
+  content:'';
+  top: calc(50% - 0.125rem);
+  background-color: #fff;
+  @apply absolute right-0 h-1 w-8;
+ }
+
+ .close-btn {
+  border: 2px solid #fff;
+  border-radius: 999px;
+  transition: background-color 0.5s ease-in-out;
+ }
+
+ .close-btn:hover {
+  background-color: #ffffff;
+ }
+
+ .close-btn .line {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+  transform-origin: center;
+  height: 2px;
+  width: 2rem;
+  border-radius: 1px;
+ }
+
+ .close-btn:hover .line {
+  background-color: #0e161a;
+ }
+
+ .close-btn .line.line-2 {
+  transform: rotate(45deg);
+ }

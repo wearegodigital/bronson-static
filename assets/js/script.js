@@ -250,8 +250,6 @@ function mouseMoveFunc(evt) {
 
 window.addEventListener("mousemove", mouseMoveFunc);
 
-
-
 /***
  * 
  * 
@@ -298,3 +296,153 @@ function callParallax(e){
  */
 
 
+/* ----------------------------------------
+ * Menu Section
+ * ---------------------------------------- */
+
+/*** Setting Up Variables ***/
+
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
+
+let path = document.querySelector("#menu #path")
+MotionPathPlugin.convertToPath(path);
+
+let points = gsap.utils.toArray("#menu .menu-item"),
+    num = points.length,
+    scroller = document.querySelector("#menu"),
+    section = document.querySelector("#menu .menu-container"),
+    wrap = document.querySelector("#menu .menu-container #rolodex-menu"),
+    viewportRotations = 3;
+
+/*** Setting up velocity based element rotation to give a more natural rolodex effect ***/
+
+let proxy = { rotate: 0 },
+    limit = 30,
+    skewSetter = gsap.quickSetter(".rotateElem", "rotate", "deg"), // fast
+    clamp = gsap.utils.clamp(-limit/2, limit);
+
+/*** Loop over all points and animate the scroll around on load ***/
+points.forEach(function(point, i) {
+  let move = gsap.timeline(),
+      end = -1 + (i * (1 /num));
+
+  if(i == 0){
+    let end = -0.0000001;
+  }
+
+  move.to(point, {
+    motionPath:{
+      path: "#path",
+      align: "#path",
+      alignOrigin: [0.5, 0.5],
+      autoRotate:true,
+      end: end,
+    },
+    duration:1,
+    ease: "power1.inOut",
+  });
+});
+
+/*** Primary scroll animation rotating the wrap  ***/
+gsap.to(wrap,{
+  rotation: -360 * viewportRotations,
+  transformOrigin:'center',
+  duration:1, 
+  ease: "sine.inOut",
+  scrollTrigger: {
+    scroller: scroller,
+    trigger: section,
+    scrub: 2,
+    start: 1,
+    end: "max",
+    lazy: false,
+    onLeave: self => {
+      // Resetting scrol when reach bottom of viewport going down
+      self.scroll(2);
+      ScrollTrigger.update();
+    },
+    onLeaveBack: self => {
+      // Resetting scroll when reach top of viewport going up
+      self.scroll(section.offsetHeight - scroller.offsetHeight - wrap.offsetHeight - 1);
+      console.log(section.offsetHeight - scroller.offsetHeight - wrap.offsetHeight - 1);
+      ScrollTrigger.update();
+    },
+    onUpdate: (self) => {
+      // Applying velocity based rotation animation
+      let rotate = clamp(self.getVelocity() / 100);
+      gsap.to(".rotateElem", {
+        rotate: rotate,
+        duration: 0.5, 
+        ease: "power1.out",
+        overwrite: true,
+      });
+      ScrollTrigger.update();
+    }
+  }
+})
+
+
+// Make the right edge "stick" to the scroll bar. force3D: true improves performance
+gsap.set(".rotateElem", {transformOrigin: "left center", force3D: true});
+
+
+/* ----------------------------------------
+ * Image Reveal Script
+ * ---------------------------------------- */
+
+const items = document.querySelectorAll('.hover-reveal-item');
+const imageContainer = document.getElementById('hover-reveal');
+const image = document.getElementById('hover-reveal__img');
+var imageDisplayed = false;
+
+items.forEach((el) => {
+  el.addEventListener('mouseover', (e) => {
+    imageData = e.target.getAttribute('data-img');
+    e.target.style.zIndex = 99;
+    console.log(imageData);
+
+    if(!imageDisplayed && imageData != null){
+      image.setAttribute('src', imageData);
+      imageContainer.classList.add("active");
+      imageDisplayed = true;
+    }
+    
+  })
+  el.addEventListener('mousemove', (e) => {
+    imageContainer.style.top = e.clientY + 'px';
+    imageContainer.style.left = e.clientX + 'px';
+  })
+  el.addEventListener('mouseleave', (e) => {
+    e.target.style.zIndex = 1;
+    if(imageDisplayed){
+      imageContainer.classList.remove("active");
+      imageDisplayed = false;
+    }
+  })
+})
+
+/* ----------------------------------------
+ * Toggle Menu
+ * ---------------------------------------- */
+
+$('document').ready( function(){
+  $('a[href="#open"]').click(function (e) {
+    var $menu = $('#modal-menu');
+
+    if ($menu.hasClass('active')) {
+      $menu.removeClass('active');
+    } else {
+      $menu.addClass('active');
+    }
+  });
+
+  $('a[href="#close"]').click(function (e) {
+    var $menu = $('#modal-menu');
+
+    if ($menu.hasClass('active')) {
+      $menu.removeClass('active');
+    } else {
+      $menu.addClass('active');
+    }
+  });
+});
