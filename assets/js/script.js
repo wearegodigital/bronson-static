@@ -147,6 +147,56 @@ $('document').ready( function(){
     });
   });
 
+  /* ----------------------------------------
+   * Portfolio Items Scroll Animation
+   * ---------------------------------------- */
+
+  /** Setting Portfolio layouts array */
+  var portfolioLayouts = [
+    {section_speed: 5, section_scale: 1, image1_speed: -10, image1_scale: 1, image2_speed: 30, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
+    {section_speed: 10, section_scale: 1, image1_speed: -20, image1_scale: 1, image2_speed: 90, image2_scale: 1, image3_speed: -10, image3_scale: 1},
+    {section_speed: 10, section_scale: 1, image1_speed: 80, image1_scale: 1, image2_speed: -50, image2_scale: 1.5, image3_speed: 25, image3_scale: 1.5},
+    {section_speed: 6, section_scale: 1.5, image1_speed: 30, image1_scale: 1.5, image2_speed: -40, image2_scale: 1, image3_speed: 60, image3_scale: 1},
+    {section_speed: 10, section_scale: 1, image1_speed: 50, image1_scale: 1.5, image2_speed: 10, image2_scale: 1, image3_speed: 25, image3_scale: 1.5},
+    {section_speed: 5, section_scale: 1, image1_speed: -10, image1_scale: 1, image2_speed: 30, image2_scale: 2, image3_speed: 80, image3_scale: 0.75},
+    {section_speed: 6, section_scale: 1.5, image1_speed: 40, image1_scale: 0.5, image2_speed: 20, image2_scale: 1, image3_speed: 60, image3_scale: 1},
+    {section_speed: 10, section_scale: 1, image1_speed: 50, image1_scale: 1, image2_speed: 10, image2_scale: 1, image3_speed: 25, image3_scale: 1.5},
+  ];
+
+  gsap.utils.toArray(".portfolio-image").forEach((image, i) => {
+    /*** Getting layout of sections from data attribute ***/
+    var layoutIndex = image.getAttribute('data-layout') - 1;
+    var layout = portfolioLayouts[layoutIndex]
+
+    /*** Getting Image Number ***/
+    var imageNumber = image.getAttribute('data-image-number');
+
+    /*** Getting Trigger Section ***/
+    var sectionID = image.getAttribute('data-trigger');
+    var section = document.querySelector(sectionID);
+
+    if(imageNumber == 3){
+      gsap.set(image, { yPercent: layout.image3_speed});
+    } else if (imageNumber == 2) {
+      gsap.set(image, { yPercent: layout.image2_speed});
+    } else {
+      gsap.set(image, { yPercent: layout.image1_speed});
+    }
+
+    gsap.to(image, {
+      yPercent:  layout.section_speed * -1 * layout.section_scale,
+      ease: "sine",
+      scrollTrigger: {
+        trigger: section,
+        scrub: 0.5,
+      }, 
+    });
+  });
+
+  /* ----------------------------------------
+   * Color and Mode Toggle
+   * ---------------------------------------- */
+
   gsap.utils.toArray('.portfolio-tease').forEach((section, i) => {
   
     if(section.getAttribute('data-bg') !== null || section.getAttribute('data-display') !== null) {
@@ -472,3 +522,25 @@ $('document').ready( function(){
     $("#modal-menu #menu #rolodex-menu").css('transform','rotate(-15deg');
   });
 });
+
+/* ----------------------------------------
+ * Fade out project title
+ * ---------------------------------------- */
+
+
+const lastSection = document.querySelectorAll('.page-portfolio #gallery .section.last-section')
+const headings = document.querySelectorAll('.page-portfolio .title-element')
+
+headings.forEach((heading, i) => {
+  gsap.fromTo(heading, 
+    {opacity: 1},{
+    opacity: 0,
+    ease: 'power1.inOut',
+    scrollTrigger: {
+      trigger: lastSection,
+      start: 'center center',
+      end: `+=100%`,
+      scrub: 1,
+    },
+  })
+})

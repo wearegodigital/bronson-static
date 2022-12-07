@@ -57,13 +57,7 @@
   {% assign mouse_y_image_3 = include.mouse_y_image_3 %}
 {% endif %}
 
-<section id="portfolio-{{ include.slug }}" class="section portfolio-tease relative layout-{{ include.layout }} {{ include.display }}-mode" data-layout="{{ include.layout }}" data-bg="{{ include.bg }}" data-display="{{ include.display }}" data-last-display="{{ include.last_display }}" data-next-display="{{ include.next_display }}">
-    {% include elements/portfolio-information.html
-      text=include.title
-      slug=include.slug
-      url=include.url
-      css_classes="mega text-white font-800 font-display text-center"
-    %}
+<section id="{{ include.slug }}-portfolio-{{ include.count }}" class="section portfolio-tease relative {{ include.display }}-mode {{ include.css_classes }}" data-bg="{{ include.bg }}" data-display="{{ include.display }}" data-last-display="{{ include.last_display }}" data-next-display="{{ include.next_display }}">
     <div class="portfolio-images">
       {% if include.image_1 and include.image_1 != "" and include.image_1 != nil %}
         {% include elements/media-item.html 

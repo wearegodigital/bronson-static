@@ -1,0 +1,30 @@
+<div class="portfolio-info mix-blend-difference absolute bottom-32 left-16 z-30">
+    <div class="flex flex-col justify-start items-start">
+        <a href="{{ include.url }}">
+            <h1 class="portfolio-title {{ include.css_classes}}">
+                {{ include.text }}
+            </h1>
+        </a>
+        {% include elements/button.html 
+            text="Up Next →" 
+            font_weight="300"
+            link=include.url
+            css_classes="mt-8" 
+        %}
+    </div>
+</div>
+<div class="portfolio-info opacity-60 absolute bottom-32 left-16 z-40">
+    <div href="{{ include.url }}" class="flex flex-col justify-start items-start">
+        <a href="{{ include.url }}">
+            <h1 class="portfolio-title {{ include.css_classes}}">
+                {{ include.text }}
+            </h1>
+        </a>
+        {% include elements/button.html 
+            text="Up Next →" 
+            font_weight="300"
+            link=include.url
+            css_classes="mt-8" 
+        %}
+    </div>
+</div>
