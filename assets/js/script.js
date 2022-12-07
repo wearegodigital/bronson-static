@@ -321,28 +321,6 @@ let proxy = { rotate: 0 },
     skewSetter = gsap.quickSetter(".rotateElem", "rotate", "deg"), // fast
     clamp = gsap.utils.clamp(-limit/2, limit);
 
-/*** Loop over all points and animate the scroll around on load ***/
-points.forEach(function(point, i) {
-  let move = gsap.timeline(),
-      end = -1 + (i * (1 /num));
-
-  if(i == 0){
-    let end = -0.0000001;
-  }
-
-  move.to(point, {
-    motionPath:{
-      path: "#path",
-      align: "#path",
-      alignOrigin: [0.5, 0.5],
-      autoRotate:true,
-      end: end,
-    },
-    duration:1,
-    ease: "power1.inOut",
-  });
-});
-
 /*** Primary scroll animation rotating the wrap  ***/
 gsap.to(wrap,{
   rotation: -360 * viewportRotations,
@@ -434,15 +412,63 @@ $('document').ready( function(){
     } else {
       $menu.addClass('active');
     }
+
+    /*** Loop over all points and animate the scroll around on load ***/
+    points.forEach(function(point, i) {
+      let move = gsap.timeline(),
+          end = -1 + ((i - 2) * (1 /num));
+
+      if(i == 0){
+        let end = -0.0000001;
+      }
+
+      move.to(point, {
+        motionPath:{
+          path: "#path",
+          align: "#path",
+          alignOrigin: [0.5, 0.5],
+          autoRotate:true,
+          end: end,
+        },
+        duration:1,
+        ease: "power1.inOut",
+      });
+    });
   });
 
   $('a[href="#close"]').click(function (e) {
     var $menu = $('#modal-menu');
+    var $wrap = $('#menu');
 
     if ($menu.hasClass('active')) {
       $menu.removeClass('active');
     } else {
       $menu.addClass('active');
     }
+
+    /*** Loop over all points and animate the scroll around on load ***/
+    points.forEach(function(point, i) {
+      let move = gsap.timeline(),
+          end = -0.00000001;
+
+      if(i == 0){
+        let end = -0.0000001;
+      }
+
+      move.to(point, {
+        motionPath:{
+          path: "#path",
+          align: "#path",
+          alignOrigin: [0.5, 0.5],
+          autoRotate:true,
+          end: end,
+        },
+        duration:1,
+        ease: "power1.inOut",
+      });
+    });
+
+    $("#modal-menu #menu").animate({ scrollTop: 0 }, "fast");
+    $("#modal-menu #menu #rolodex-menu").css('transform','rotate(-15deg');
   });
 });
