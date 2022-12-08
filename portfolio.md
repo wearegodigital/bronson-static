@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Portfolio Page Example"
+type: portfolio
+body_class: "bg-black-1"
 ---
 
 {% include modules/navigation.html css-classes="text-white text-h5 font-800 font-display" %}
