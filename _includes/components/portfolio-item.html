@@ -67,6 +67,13 @@
         <img src="{{ include.image_1 }}" class="w-100 h-auto"/>
     </div>
   </figure>
+  <style>
+    @media (max-width: 767px){
+      #{{ include.slug }}-portfolio-{{ include.count }}-image-1 {
+        top: calc({{ include.count | minus: 1 }} * var(--portfolio-section-height) {{ include.image_1_vertical_position_mobile }}) !important;
+      }
+    }
+  </style>
 {% endif %}
 
 {% if include.image_2 and include.image_2 != "" and include.image_2 != nil %}
@@ -75,6 +82,13 @@
         <img src="{{ include.image_2 }}" class="w-100 h-auto"/>
     </div>
   </figure>
+  <style>
+    @media (max-width: 767px){
+      #{{ include.slug }}-portfolio-{{ include.count }}-image-2 {
+        top: calc({{ include.count | minus: 1 }} * var(--portfolio-section-height) {{ include.image_2_vertical_position_mobile }}) !important;
+      }
+    }
+  </style>
 {% endif %}
 
 {% if include.image_3 and include.image_3 != "" and include.image_3 != nil %}
@@ -83,4 +97,11 @@
         <img src="{{ include.image_3 }}" class="w-100 h-auto"/>
     </div>
   </figure>
+  <style>
+    @media (max-width: 767px){
+      #{{ include.slug }}-portfolio-{{ include.count }}-image-3 {
+        top: calc({{ include.count | minus: 1 }} * var(--portfolio-section-height) {{ include.image_3_vertical_position_mobile }}) !important;
+      }
+    }
+  </style>
 {% endif %}

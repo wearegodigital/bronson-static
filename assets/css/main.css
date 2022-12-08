@@ -268,19 +268,19 @@
   }
   
   .page-interface-index, .page-interface-home {
-    top: 32px;
+    top: 2rem;
   }
   
   .page-interface-scroll-number, .page-interface-about {
-    bottom: 32px;
+    bottom: 2rem;
   }
   
   .page-interface-index, .page-interface-about {
-    right: 32px;
+    right: 2rem;
   }
   
   .page-interface-home, .page-interface-scroll-number {
-    left: 32px;
+    left: 2rem;
   }
   
   .page-interface-overlay {
@@ -341,304 +341,617 @@
 * Portfolio Tease
 * --------------------------------------------------------------------------- */
 
-.portfolio-tease {
-  height: 75vw;
-  min-height: 125vh;
-  width: 100vw;
-}
-
-.page-home .portfolio-items {
-  padding-top: 25vh;
-}
-
 /****** Layouts ******/
 
-.page-home .portfolio-tease .portfolio-images .media-item {
-  @apply absolute;
+/* Minimum aspect ratio */
+@media (min-aspect-ratio: 1/1) {
+  .portfolio-tease {
+    height: 75vw;
+    min-height: 125vh;
+    width: 100vw;
+  }
+  
+  .page-home .portfolio-items {
+    padding-top: 25vh;
+  }
+
+  .page-home .portfolio-tease .portfolio-images .media-item {
+    @apply absolute;
+  }
+
+  .page-home .portfolio-tease .portfolio-images .media-item img {
+    max-height: 110vh;
+  }
+
+  /** Layout: 1 **/
+  .page-home .portfolio-tease.layout-1 .portfolio-images .media-item-1 {
+    max-width: 50vw;
+    top: calc(50% - 30vw);
+    left: 25vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-1 .portfolio-images .media-item-2 {
+    max-width: 45vw;
+    top: calc(50% - 20vw);
+    right: -4rem;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-1 .portfolio-images .media-item-3 {
+    max-width: 30vw;
+    top: calc(50% - 15vw);
+    left: 4rem;
+    z-index: 1;
+  }
+
+  /** Layout: 2 **/
+  .page-home .portfolio-tease.layout-2 .portfolio-images .media-item-1 {
+    max-width: 45vw;
+    top: calc(50% - 22.55vw);
+    left: 27.5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-2 .portfolio-images .media-item-2 {
+    max-width: 45vw;
+    top: calc(50% + 10vw);
+    right: calc(50% - 50vw);
+    z-index: 2;
+  }
+
+  .page-home .portfolio-tease.layout-2 .portfolio-images .media-item-3 {
+    max-width: 40vw;
+    top: calc(50% - 35vw);
+    left: calc(50% - 47.5vw);
+    z-index: 1;
+  }
+
+  /** Layout: 3 **/
+  .page-home .portfolio-tease.layout-3 .portfolio-images .media-item-1 {
+    max-width: 45vw;
+    top: calc(50% - 10vw);
+    left: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-3 .portfolio-images .media-item-2 {
+    max-width: 45vw;
+    top: calc(100% - 50vw);
+    right: 10vw;
+    z-index: 2;
+  }
+
+  .page-home .portfolio-tease.layout-3 .portfolio-images .media-item-3 {
+    display: none;
+  }
+
+  /** Layout: 4 **/
+  .page-home .portfolio-tease.layout-4 .portfolio-images .media-item-1 {
+    max-width: 50vw;
+    top: calc(50% - 40vw);
+    left: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-4 .portfolio-images .media-item-2 {
+    max-width: 40vw;
+    top: calc(50% - 30vw);
+    right: calc(50% - 40vw);
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-4 .portfolio-images .media-item-3 {
+    max-width: 55vw;
+    top: calc(50% + 10vw);
+    right: 4rem;
+    z-index: 1;
+  }
+
+  /** Layout: 5 **/
+  .page-home .portfolio-tease.layout-5 .portfolio-images .media-item-1 {
+    max-width: 40vw;
+    bottom: 0;
+    left: 10vw;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-5 .portfolio-images .media-item-2 {
+    max-width: 45vw;
+    top: calc(50% - 10vw);
+    right: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-5 .portfolio-images .media-item-3 {
+    display: none;
+  }
+
+  /** Layout: 6 **/
+  .page-home .portfolio-tease.layout-6 .portfolio-images .media-item-1 {
+    max-width: 50vw;
+    top: calc(50% - 35vw);
+    left: 25vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-6 .portfolio-images .media-item-2 {
+    max-width: 45vw;
+    top: calc(50% + 5vw);
+    right: 5vw;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-6 .portfolio-images .media-item-3 {
+    max-width: 30vw;
+    top: calc(50% - 15vw);
+    left: 4rem;
+    z-index: 1;
+  }
+
+  /** Layout: 7 **/
+  .page-home .portfolio-tease.layout-7 .portfolio-images .media-item-1 {
+    max-width: 30vw;
+    top: calc(50% - 30vw);
+    left: 35vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-7 .portfolio-images .media-item-2 {
+    max-width: 20vw;
+    top: calc(50% - 10vw);
+    right: 5vw;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-7 .portfolio-images .media-item-3 {
+    max-width: 20vw;
+    top: calc(50% - 5vw);
+    left: 5vw;
+    z-index: 1;
+  }
+
+  /** Layout: 8 **/
+  .page-home .portfolio-tease.layout-8 .portfolio-images .media-item-1 {
+    max-width: 40vw;
+    bottom: 0;
+    left: 5vw;
+    z-index: 2;
+  }
+
+  .page-home .portfolio-tease.layout-8 .portfolio-images .media-item-2 {
+    max-width: 30vw;
+    top: calc(50% );
+    right: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-8 .portfolio-images .media-item-3 {
+    max-width: 35vw;
+    top: 15vw;
+    left: calc(50% - 12.5vw);
+    z-index: 1;
+  }
 }
 
-.page-home .portfolio-tease .portfolio-images .media-item img {
-  max-height: 110vh;
+/* Minimum aspect ratio */
+@media (max-aspect-ratio: 1/1) {
+  .portfolio-tease {
+    height: 125vw;
+    min-height: 100vh;
+    width: 100vw;
+  }
+  
+  .page-home .portfolio-items {
+    padding-top: 25vh;
+  }
+
+  .page-home .portfolio-tease .portfolio-images .media-item {
+    @apply absolute;
+  }
+
+  .page-home .portfolio-tease .portfolio-images .media-item img {
+    max-height: 90vh;
+  }
+
+  /** Layout: 1 **/
+  .page-home .portfolio-tease.layout-1 .portfolio-images .media-item-1 {
+    max-width: 70vw;
+    top: calc(50% - 60vw);
+    left: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-1 .portfolio-images .media-item-2 {
+    max-width: 75vw;
+    top: calc(50% - 75vw);
+    right: -4rem;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-1 .portfolio-images .media-item-3 {
+    max-width: 50vw;
+    top: calc(50% + 14vw);
+    right: -2rem;
+    z-index: 1;
+  }
+
+  /** Layout: 2 **/
+  .page-home .portfolio-tease.layout-2 .portfolio-images .media-item-1 {
+    max-width: 70vw;
+    top: calc(50% - 36vw);
+    left: 15vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-2 .portfolio-images .media-item-2 {
+    max-width: 60vw;
+    top: calc(50% + 33vw);
+    right: calc(50% - 50vw);
+    z-index: 2;
+  }
+
+  .page-home .portfolio-tease.layout-2 .portfolio-images .media-item-3 {
+    max-width: 60vw;
+    top: calc(50% - 70vw);
+    left: calc(50% - 47.5vw);
+    z-index: 1;
+  }
+
+  /** Layout: 3 **/
+  .page-home .portfolio-tease.layout-3 .portfolio-images .media-item-1 {
+    max-width: 90vw;
+    top: calc(50% - 65vw);
+    left: -5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-3 .portfolio-images .media-item-2 {
+    max-width: 65vw;
+    top: calc(100% - 70vw);
+    right: -4rem;
+    z-index: 2;
+  }
+
+  .page-home .portfolio-tease.layout-3 .portfolio-images .media-item-3 {
+    display: none;
+  }
+
+  /** Layout: 4 **/
+  .page-home .portfolio-tease.layout-4 .portfolio-images .media-item-1 {
+    max-width: 70vw;
+    bottom: 5vw;
+    right: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-4 .portfolio-images .media-item-2 {
+    max-width: 70vw;
+    top: calc(50% - 80vw);
+    right: -2rem;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-4 .portfolio-images .media-item-3 {
+    max-width: 65vw;
+    top: calc(50% - 40vw);
+    left: 0rem;
+    z-index: 4;
+  }
+
+  /** Layout: 5 **/
+  .page-home .portfolio-tease.layout-5 .portfolio-images .media-item-1 {
+    max-width: 60vw;
+    bottom: 0;
+    left: 10vw;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-5 .portfolio-images .media-item-2 {
+    max-width: 55vw;
+    top: calc(50% - 80vw);
+    right: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-5 .portfolio-images .media-item-3 {
+    display: none;
+  }
+
+  /** Layout: 6 **/
+  .page-home .portfolio-tease.layout-6 .portfolio-images .media-item-1 {
+    max-width: 80vw;
+    top: calc(50% - 35vw);
+    left: 10vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-6 .portfolio-images .media-item-2 {
+    max-width: 60vw;
+    top: calc(50% + 36vw);
+    right: 10vw;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-6 .portfolio-images .media-item-3 {
+    max-width: 50vw;
+    top: calc(50% - 70vw);
+    left: 5vw;
+    z-index: 1;
+  }
+
+  /** Layout: 7 **/
+  .page-home .portfolio-tease.layout-7 .portfolio-images .media-item-1 {
+    max-width: 50vw;
+    top: calc(50% - 40vw);
+    left: 25vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-7 .portfolio-images .media-item-2 {
+    max-width: 30vw;
+    top: calc(50% + 30vw);
+    right: 5vw;
+    z-index: 2;
+  }
+
+
+  .page-home .portfolio-tease.layout-7 .portfolio-images .media-item-3 {
+    max-width: 30vw;
+    top: calc(50% - 60vw);
+    left: 5vw;
+    z-index: 1;
+  }
+
+  /** Layout: 8 **/
+  .page-home .portfolio-tease.layout-8 .portfolio-images .media-item-1 {
+    max-width: 50vw;
+    bottom: 0;
+    left: 5vw;
+    z-index: 2;
+  }
+
+  .page-home .portfolio-tease.layout-8 .portfolio-images .media-item-2 {
+    max-width: 45vw;
+    top: calc(50% );
+    right: 5vw;
+    z-index: 3;
+  }
+
+  .page-home .portfolio-tease.layout-8 .portfolio-images .media-item-3 {
+    max-width: 55vw;
+    top: 10vw;
+    left: calc(50% - 27.5vw);
+    z-index: 1;
+  }
 }
 
-/** Layout: 1 **/
-.page-home .portfolio-tease.layout-1 .portfolio-images .media-item-1 {
-  max-width: 50vw;
-  top: calc(50% - 30vw);
-  left: 25vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-1 .portfolio-images .media-item-2 {
-  max-width: 45vw;
-  top: calc(50% - 20vw);
-  right: -4rem;
-  z-index: 2;
-}
-
-
-.page-home .portfolio-tease.layout-1 .portfolio-images .media-item-3 {
-  max-width: 30vw;
-  top: calc(50% - 15vw);
-  left: 4rem;
-  z-index: 1;
-}
-
-/** Layout: 2 **/
-.page-home .portfolio-tease.layout-2 .portfolio-images .media-item-1 {
-  max-width: 45vw;
-  top: calc(50% - 22.55vw);
-  left: 27.5vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-2 .portfolio-images .media-item-2 {
-  max-width: 45vw;
-  top: calc(50% + 10vw);
-  right: calc(50% - 50vw);
-  z-index: 2;
-}
-
-.page-home .portfolio-tease.layout-2 .portfolio-images .media-item-3 {
-  max-width: 40vw;
-  top: calc(50% - 35vw);
-  left: calc(50% - 47.5vw);
-  z-index: 1;
-}
-
-/** Layout: 3 **/
-.page-home .portfolio-tease.layout-3 .portfolio-images .media-item-1 {
-  max-width: 45vw;
-  top: calc(50% - 10vw);
-  left: 5vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-3 .portfolio-images .media-item-2 {
-  max-width: 45vw;
-  top: calc(100% - 50vw);
-  right: 10vw;
-  z-index: 2;
-}
-
-.page-home .portfolio-tease.layout-3 .portfolio-images .media-item-3 {
-  display: none;
-}
-
-/** Layout: 4 **/
-.page-home .portfolio-tease.layout-4 .portfolio-images .media-item-1 {
-  max-width: 50vw;
-  top: calc(50% - 40vw);
-  left: 5vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-4 .portfolio-images .media-item-2 {
-  max-width: 40vw;
-  top: calc(50% - 30vw);
-  right: calc(50% - 40vw);
-  z-index: 2;
-}
-
-
-.page-home .portfolio-tease.layout-4 .portfolio-images .media-item-3 {
-  max-width: 55vw;
-  top: calc(50% + 10vw);
-  right: 4rem;
-  z-index: 1;
-}
-
-/** Layout: 5 **/
-.page-home .portfolio-tease.layout-5 .portfolio-images .media-item-1 {
-  max-width: 40vw;
-  bottom: 0;
-  left: 10vw;
-  z-index: 2;
-}
-
-
-.page-home .portfolio-tease.layout-5 .portfolio-images .media-item-2 {
-  max-width: 45vw;
-  top: calc(50% - 10vw);
-  right: 5vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-5 .portfolio-images .media-item-3 {
-  display: none;
-}
-
-/** Layout: 6 **/
-.page-home .portfolio-tease.layout-6 .portfolio-images .media-item-1 {
-  max-width: 50vw;
-  top: calc(50% - 35vw);
-  left: 25vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-6 .portfolio-images .media-item-2 {
-  max-width: 45vw;
-  top: calc(50% + 5vw);
-  right: 5vw;
-  z-index: 2;
-}
-
-
-.page-home .portfolio-tease.layout-6 .portfolio-images .media-item-3 {
-  max-width: 30vw;
-  top: calc(50% - 15vw);
-  left: 4rem;
-  z-index: 1;
-}
-
-/** Layout: 7 **/
-.page-home .portfolio-tease.layout-7 .portfolio-images .media-item-1 {
-  max-width: 30vw;
-  top: calc(50% - 30vw);
-  left: 35vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-7 .portfolio-images .media-item-2 {
-  max-width: 20vw;
-  top: calc(50% - 10vw);
-  right: 5vw;
-  z-index: 2;
-}
-
-
-.page-home .portfolio-tease.layout-7 .portfolio-images .media-item-3 {
-  max-width: 20vw;
-  top: calc(50% - 5vw);
-  left: 5vw;
-  z-index: 1;
-}
-
-/** Layout: 8 **/
-.page-home .portfolio-tease.layout-8 .portfolio-images .media-item-1 {
-  max-width: 40vw;
-  bottom: 0;
-  left: 5vw;
-  z-index: 2;
-}
-
-.page-home .portfolio-tease.layout-8 .portfolio-images .media-item-2 {
-  max-width: 30vw;
-  top: calc(50% );
-  right: 5vw;
-  z-index: 3;
-}
-
-.page-home .portfolio-tease.layout-8 .portfolio-images .media-item-3 {
-  max-width: 35vw;
-  top: 15vw;
-  left: calc(50% - 12.5vw);
-  z-index: 1;
+@media (max-width: 480px){
+  #portfolio-j-breckenridge .portfolio-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 /* -----------------------------------------------------------------------------
 * Portfolio Items
 * --------------------------------------------------------------------------- */
 
-:root {
-  --portfolio-section-height: 200vh;
+/* Minimum aspect ratio */
+@media (min-aspect-ratio: 1/1) {
+  :root {
+    --portfolio-section-height: 200vh;
+  }
+
+  .page-portfolio .portfolio-tease {
+    height: 75vw;
+    min-height: var(--portfolio-section-height);
+    width: 100vw;
+  }
+
+  /****** Layouts ******/
+
+  .page-portfolio .portfolio-items .portfolio-item {
+    @apply absolute;
+  }
+
+  .page-portfolio .portfolio-items .portfolio-image {
+    max-height: 100vh;
+  }
+
+  /** Layout: 1 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-1 {
+    max-width: 45vw;
+    right: 8rem;
+  }
+
+  /** Layout: 2 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-2 {
+    max-width: 45vw;
+    right: 8rem;
+  }
+
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-2 {
+    max-width: 55vw;
+    left: calc(50% - 45vw);
+  }
+
+  /** Layout: 3 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-3 {
+    max-width: 65vw;
+    right: 4rem;
+  }
+
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-3 {
+    max-width: 35vw;
+    left: calc(50% - 45vw);
+  }
+
+  /** Layout: 4 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-4 {
+    max-width: 40vw;
+    right: 4rem;
+  }
+
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-4 {
+    max-width: 45vw;
+    left: calc(50% - 45vw);
+  }
+
+
+  /** Layout: 4 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-4 {
+    max-width: 40vw;
+    right: 4rem;
+  }
+
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-4 {
+    max-width: 45vw;
+    left: calc(50% - 45vw);
+  }
+
+  /** Layout: 5 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-5 {
+    max-width: 70vw;
+    left: calc(50% - 35vw);
+  }
 }
 
-.page-portfolio .portfolio-tease {
-  height: 75vw;
-  min-height: var(--portfolio-section-height);
-  width: 100vw;
-}
+/* Maximum aspect ratio */
+@media (max-aspect-ratio: 1/1) {
+  :root {
+    --portfolio-section-height: 100vh;
+  }
 
-/****** Layouts ******/
+  .page-portfolio .portfolio-tease {
+    height: 75vw;
+    min-height: var(--portfolio-section-height);
+    width: 100vw;
+  }
 
-.page-portfolio .portfolio-items .portfolio-item {
-  @apply absolute;
-}
+  /****** Layouts ******/
 
-.page-portfolio .portfolio-items .portfolio-image {
-  max-height: 100vh;
-}
+  .page-portfolio .portfolio-items .portfolio-item {
+    @apply absolute;
+  }
 
-/** Layout: 1 **/
-.page-portfolio .portfolio-items .portfolio-image-1.layout-1 {
-  max-width: 45vw;
-  right: 8rem;
-}
+  .page-portfolio .portfolio-items .portfolio-image {
+    max-height: 90vh;
+  }
 
-/** Layout: 2 **/
-.page-portfolio .portfolio-items .portfolio-image-1.layout-2 {
-  max-width: 45vw;
-  right: 8rem;
-}
+  /** Layout: 1 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-1 {
+    max-width: 70vw;
+    right: 1rem;
+  }
 
-.page-portfolio .portfolio-items .portfolio-image-2.layout-2 {
-  max-width: 55vw;
-  left: calc(50% - 45vw);
-}
+  /** Layout: 2 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-2 {
+    max-width: 60vw;
+    right: 1rem;
+  }
 
-/** Layout: 3 **/
-.page-portfolio .portfolio-items .portfolio-image-1.layout-3 {
-  max-width: 65vw;
-  right: 4rem;
-}
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-2 {
+    max-width: 80vw;
+    left: calc(50% - 45vw);
+  }
 
-.page-portfolio .portfolio-items .portfolio-image-2.layout-3 {
-  max-width: 35vw;
-  left: calc(50% - 45vw);
-}
+  /** Layout: 3 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-3 {
+    max-width: 80vw;
+    right: -1rem;
+  }
 
-/** Layout: 4 **/
-.page-portfolio .portfolio-items .portfolio-image-1.layout-4 {
-  max-width: 40vw;
-  right: 4rem;
-}
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-3 {
+    max-width: 60vw;
+    left: -10vw;
+  }
 
-.page-portfolio .portfolio-items .portfolio-image-2.layout-4 {
-  max-width: 45vw;
-  left: calc(50% - 45vw);
-}
+  /** Layout: 4 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-4 {
+    max-width: 40vw;
+    right: 4rem;
+  }
+
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-4 {
+    max-width: 45vw;
+    left: calc(50% - 45vw);
+  }
 
 
-/** Layout: 4 **/
-.page-portfolio .portfolio-items .portfolio-image-1.layout-4 {
-  max-width: 40vw;
-  right: 4rem;
-}
+  /** Layout: 4 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-4 {
+    max-width: 60vw;
+    right: 2rem;
+  }
 
-.page-portfolio .portfolio-items .portfolio-image-2.layout-4 {
-  max-width: 45vw;
-  left: calc(50% - 45vw);
-}
+  .page-portfolio .portfolio-items .portfolio-image-2.layout-4 {
+    max-width: 60vw;
+    left: calc(50% - 45vw);
+  }
 
-/** Layout: 5 **/
-.page-portfolio .portfolio-items .portfolio-image-1.layout-5 {
-  max-width: 70vw;
-  left: calc(50% - 35vw);
+  /** Layout: 5 **/
+  .page-portfolio .portfolio-items .portfolio-image-1.layout-5 {
+    max-width: 100vw;
+    left: 0;
+  }
 }
 
 /* -----------------------------------------------------------------------------
 * Related Projects Section
 * --------------------------------------------------------------------------- */
-.page-portfolio #related-projects .portfolio-tease {
-  min-height: 100vh !important;
-  height: 100vh !important;
+
+/* Minimum aspect ratio */
+@media (min-aspect-ratio: 1/1) {
+  .page-portfolio #related-projects .portfolio-tease {
+    min-height: 100vh !important;
+    height: 100vh !important;
+  }
+
+  .page-portfolio #related-projects .portfolio-tease #item-1 {
+    position: absolute;
+    width:65vw;
+    left: 4rem;
+    top: 4rem;
+  }
+
+  .page-portfolio #related-projects .portfolio-tease #item-2 {
+    position: absolute;
+    width:25vw;
+    bottom: 4rem;
+    right: 4rem;
+  }
 }
 
-.page-portfolio #related-projects .portfolio-tease #item-1 {
-  position: absolute;
-  width:65vw;
-  left: 4rem;
-  top: 4rem;
-}
+/* Maximum aspect ratio */
+@media (max-aspect-ratio: 1/1) {
+  .page-portfolio #related-projects .portfolio-tease {
+    min-height: 100vh !important;
+    height: 100vh !important;
+  }
 
-.page-portfolio #related-projects .portfolio-tease #item-2 {
-  position: absolute;
-  width:25vw;
-  bottom: 4rem;
-  right: 4rem;
-}
+  .page-portfolio #related-projects .portfolio-tease #item-1 {
+    position: absolute;
+    width: 100vw;
+    left: -4rem;
+    top: 25vw;
+  }
 
+  .page-portfolio #related-projects .portfolio-tease #item-2 {
+    position: absolute;
+    width: 50vw;
+    top: 65vw;
+    right: -5vw;
+  }
+}
 
 /* -----------------------------------------------------------------------------
 * Dark Mode
@@ -872,6 +1185,10 @@
     max-width: 80%;
   }
 
+  .about-container {
+    min-height: 100vh;
+  }
+
   #about-video .video-container iframe {
     width: 80vw;
     height: 45vw;
@@ -885,6 +1202,33 @@
 /* Contact form
 /*----------------------------------------------------------------------------*/
 
+.contact-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px){
+  .content-container {
+    max-width: 100%;
+    padding: 0 10%;
+  }
+
+  .contact-container .contact-image-carousel {
+    height: calc(100vh - 2rem);
+  }
+
+  .contact-container .about-description {
+    height: calc(100vh - 2rem);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wpcf7-form {
+    padding: 0 !important;
+  }
+}
 #contact-form {
   min-height: 100vh;
 }

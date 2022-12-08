@@ -10,10 +10,10 @@ body_class: "black-bg"
     text="Contact"
     id="contact-title"
     css_classes="fixed top-1/2 left-8 transform -translate-y-1/2 z-30"
-    element_css_classes="text-white font-800 font-display mega text-left" 
+    element_css_classes="text-white font-800 font-display text-h2 md:text-mega text-left" 
 %}
 <div id="contact-form" class="section content-container relative z-20 w-screen mx-auto">
-    <div class="contact-container grid grid-cols-2 gap-4 h-screen justify-items-center place-items-center">
+    <div class="contact-container grid grid-cols-1 md:grid-cols-2 gap-4 h-auto justify-items-center place-items-center">
         <div class="contact-image-carousel p-4 w-full h-full relative">
             <img src="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/ebd46804-5930-4aae-930b-ebcc78c4361c/03032022_Sorel_KenticImpactSandal_3623_4x5.jpg" class="carousel-image w-full opacity-0" data-mouse-x="0.1" data-mouse-y="0.2">
             <img src="https://images.squarespace-cdn.com/content/v1/5dce0508d40dcb3d649e5030/1613151812831-4RW73H9VU2T3CORZTH3J/Bubly_PrideMedia_102020_4020.JPG" class="carousel-image w-full opacity-0" data-mouse-x="0.1" data-mouse-y="0.2">

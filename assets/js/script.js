@@ -540,7 +540,7 @@ headings.forEach((heading, i) => {
     scrollTrigger: {
       trigger: lastSection,
       start: 'center center',
-      end: `+=100%`,
+      end: `+=95%`,
       scrub: 1,
     },
   })
@@ -554,7 +554,7 @@ headingsBlend.forEach((heading, i) => {
     scrollTrigger: {
       trigger: lastSection,
       start: 'center center',
-      end: `+=100%`,
+      end: `+=95%`,
       scrub: 1,
     },
   })
@@ -563,41 +563,88 @@ headingsBlend.forEach((heading, i) => {
 /* ----------------------------------------
  * Fade out about title
  * ---------------------------------------- */
+$(document).ready(function() {
+  var lastSectionAbout = document.querySelectorAll('.page-about .about-description');
 
-const lastSectionAbout = document.querySelectorAll('.page-about #about-clients');
-const headingsAbout = document.querySelectorAll('.page-about .title-element.title-overlay');
-const headingsBlendAbout = document.querySelectorAll('.page-about .title-element.mix-blend-difference');
+  if($(window).width() >= 768) {
+    lastSectionAbout = document.querySelectorAll('.page-about #about-clients');
+  } 
 
-headingsAbout.forEach((heading, i) => {
-  gsap.fromTo(heading, 
-    {opacity: 0.6},{
-    opacity: 0,
-    ease: 'power1.inOut',
-    scrollTrigger: {
-      trigger: lastSectionAbout,
-      start: 'top 50%',
-      end: `+=10%`,
-      scrub: 1,
-    },
+  const headingsAbout = document.querySelectorAll('.page-about .title-element.title-overlay');
+  const headingsBlendAbout = document.querySelectorAll('.page-about .title-element.mix-blend-difference');
+
+  headingsAbout.forEach((heading, i) => {
+    gsap.fromTo(heading, 
+      {opacity: 0.6},{
+      opacity: 0,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: lastSectionAbout,
+        start: 'top 50%',
+        end: `+=10%`,
+        scrub: 1,
+      },
+    })
   })
-})
 
-headingsBlendAbout.forEach((heading, i) => {
-  gsap.fromTo(heading, 
-    {opacity: 1},{
-    opacity: 0,
-    ease: 'power1.inOut',
-    scrollTrigger: {
-      trigger: lastSectionAbout,
-      start: 'top 50%',
-      end: `+=10%`,
-      scrub: 1,
-    },
+  headingsBlendAbout.forEach((heading, i) => {
+    gsap.fromTo(heading, 
+      {opacity: 1},{
+      opacity: 0,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: lastSectionAbout,
+        start: 'top 50%',
+        end: `+=10%`,
+        scrub: 1,
+      },
+    })
   })
 })
 
 /* ----------------------------------------
- * Fade out about title
+ * Fade out contact title
+ * ---------------------------------------- */
+$(document).ready(function() {
+
+  if($(window).width() < 768) {
+    var lastSectionContact = document.querySelectorAll('.page-contact .about-description');
+    const headingsContact = document.querySelectorAll('.page-contact .title-element.title-overlay');
+    const headingsBlendContact = document.querySelectorAll('.page-contact .title-element.mix-blend-difference');
+
+    headingsContact.forEach((heading, i) => {
+      gsap.fromTo(heading, 
+        {opacity: 0.6},{
+        opacity: 0,
+        ease: 'power1.inOut',
+        scrollTrigger: {
+          trigger: lastSectionContact,
+          start: 'top 50%',
+          end: `+=10%`,
+          scrub: 1,
+        },
+      })
+    })
+
+    headingsBlendContact.forEach((heading, i) => {
+      gsap.fromTo(heading, 
+        {opacity: 1},{
+        opacity: 0,
+        ease: 'power1.inOut',
+        scrollTrigger: {
+          trigger: lastSectionContact,
+          start: 'top 50%',
+          end: `+=10%`,
+          scrub: 1,
+        },
+      })
+    })
+  
+  } 
+})
+
+/* ----------------------------------------
+ * Contact Page Carousel
  * ---------------------------------------- */
 
 gsap.config({trialWarn:false});
