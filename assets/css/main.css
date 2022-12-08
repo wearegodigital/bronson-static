@@ -54,14 +54,15 @@
 /* -----------------------------------------------------------------------------
 * Typography
 * --------------------------------------------------------------------------- */
-  
-  :root {
-    font-size: 16px;
+  @media all and (max-width: 1023px){
+    html {
+      font-size: 12px;
+    }
   }
 
-  @media all and (max-width: 1023px){
-    :root {
-      font-size: 12px;
+  @media all and (min-width: 1024px){
+    html {
+      font-size: 16px;
     }
   }
   
@@ -118,6 +119,15 @@
   .rival {
     font-family: rival-sans, sans-serif;
   }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
 
 /* -----------------------------------------------------------------------------
 * Base
@@ -843,3 +853,99 @@
  .close-btn .line.line-2 {
   transform: rotate(45deg);
  }
+
+ /* ----------------------------------------
+  * About Page
+  * ---------------------------------------- */
+
+  .content-container {
+    max-width: 80%;
+  }
+
+  #about-video .video-container iframe {
+    width: 80vw;
+    height: 45vw;
+  }
+
+  #about-information {
+    min-height: 100vh;
+  }
+
+/*----------------------------------------------------------------------------*/
+/* Contact form
+/*----------------------------------------------------------------------------*/
+
+#contact-form {
+  min-height: 100vh;
+}
+
+.wpcf7-form {
+  width: 100%;
+  @apply mx-auto my-0 px-8;
+
+  .wpcf7-not-valid-tip, .wpcf7-spinner, .wpcf7-response-output  {
+    @apply hidden;
+  }
+
+  .wpcf7-submit:hover ~ span {
+    color: var(--white) !important;
+  }
+}
+
+/** Floating Label CSS **/
+
+.floating-label-container .wpcf7-form-control-wrap > input, .floating-label-container .wpcf7-form-control-wrap > textarea {
+  min-height: 3rem;
+  @apply pt-8;
+  @apply text-p;
+  @apply w-full;
+  @apply border-b-2;
+  @apply border-white;
+  @apply placeholder-transparent;
+  @apply bg-transparent;
+  @apply focus:text-p;
+  @apply focus:outline-none;
+}
+
+.floating-label-container .wpcf7-form-control-wrap > input, .wpcf7-form-control-wrap > textarea.wpcf7-not-valid {
+  @apply border-white;
+}
+
+.floating-label-container .wpcf7-form-control-wrap > input, .wpcf7-form-control-wrap > textarea.wpcf7-not-valid:placeholder-shown + label {
+  @apply text-white;
+}
+
+.floating-label-container .wpcf7-form-control-wrap > label {
+  @apply absolute;
+  @apply left-0;
+  @apply top-0;
+  @apply text-p;
+  @apply transition-all;
+}
+
+.floating-label-container .wpcf7-form-control-wrap > input, .floating-label-container .wpcf7-form-control-wrap > textarea {
+  @apply rounded-none;
+}
+
+/** Alternate Form Styling **/
+.alternate-form .wpcf7-form {
+  color: var(--black);
+  
+  .floating-label-container .wpcf7-form-control-wrap > input, .floating-label-container .wpcf7-form-control-wrap > textarea {
+    border-color: var(--black);
+  }
+
+  .peer:focus ~ .peer-focus\:text-primary {
+    color: var(--black);
+  }
+}
+
+
+/** Carousel CSS **/
+.contact-image-carousel .carousel-image {
+  position:absolute;
+  display:inline-block;
+  left:0;
+  top:50%;
+  transform: translateY(-50%);
+}

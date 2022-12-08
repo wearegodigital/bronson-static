@@ -528,10 +528,25 @@ $('document').ready( function(){
  * ---------------------------------------- */
 
 
-const lastSection = document.querySelectorAll('.page-portfolio #gallery .section.last-section')
-const headings = document.querySelectorAll('.page-portfolio .title-element')
+const lastSection = document.querySelectorAll('.page-portfolio #gallery .section.last-section');
+const headings = document.querySelectorAll('.page-portfolio .title-element.title-overlay');
+const headingsBlend = document.querySelectorAll('.page-portfolio .title-element.mix-blend-difference');
 
 headings.forEach((heading, i) => {
+  gsap.fromTo(heading, 
+    {opacity: 0.6},{
+    opacity: 0,
+    ease: 'power1.inOut',
+    scrollTrigger: {
+      trigger: lastSection,
+      start: 'center center',
+      end: `+=100%`,
+      scrub: 1,
+    },
+  })
+})
+
+headingsBlend.forEach((heading, i) => {
   gsap.fromTo(heading, 
     {opacity: 1},{
     opacity: 0,
@@ -544,3 +559,91 @@ headings.forEach((heading, i) => {
     },
   })
 })
+
+/* ----------------------------------------
+ * Fade out about title
+ * ---------------------------------------- */
+
+const lastSectionAbout = document.querySelectorAll('.page-about #about-clients');
+const headingsAbout = document.querySelectorAll('.page-about .title-element.title-overlay');
+const headingsBlendAbout = document.querySelectorAll('.page-about .title-element.mix-blend-difference');
+
+headingsAbout.forEach((heading, i) => {
+  gsap.fromTo(heading, 
+    {opacity: 0.6},{
+    opacity: 0,
+    ease: 'power1.inOut',
+    scrollTrigger: {
+      trigger: lastSectionAbout,
+      start: 'top 50%',
+      end: `+=10%`,
+      scrub: 1,
+    },
+  })
+})
+
+headingsBlendAbout.forEach((heading, i) => {
+  gsap.fromTo(heading, 
+    {opacity: 1},{
+    opacity: 0,
+    ease: 'power1.inOut',
+    scrollTrigger: {
+      trigger: lastSectionAbout,
+      start: 'top 50%',
+      end: `+=10%`,
+      scrub: 1,
+    },
+  })
+})
+
+/* ----------------------------------------
+ * Fade out about title
+ * ---------------------------------------- */
+
+gsap.config({trialWarn:false});
+let animation = gsap.timeline();
+let targets = gsap.utils.toArray(".contact-image-carousel .carousel-image");
+let numberOfTargets = targets.length;
+
+console.log(numberOfTargets);
+
+let duration = 2; //change this
+let pause = 15; // change this
+let outDelay = 1;
+let stagger = duration + pause;
+let repeatDelay = (stagger * (numberOfTargets - 1)) + pause;
+
+function init() {
+
+  gsap.set(".contact-image-carousel", {autoAlpha:1});
+  animation.fromTo(targets, {
+    zIndex: 100,
+    x: 50, 
+    opacity: 0, 
+  }, {
+    x: 0,
+    opacity: 1,
+    zIndex: 50,
+    duration: duration, 
+    stagger:{
+      each: stagger,
+      repeat: -1,
+      repeatDelay: repeatDelay
+    }
+  }, 0)
+  //use a custom ease to add a fake delay
+  .to(targets, {
+    x: -50, 
+    duration: duration, 
+    opacity: 0, 
+    zIndex: 0,
+    stagger:{
+      each: stagger,
+      repeat: -1,
+      repeatDelay: repeatDelay 
+    }
+  }, stagger + outDelay);
+  
+}
+
+init();
