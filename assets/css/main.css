@@ -259,12 +259,12 @@
     writing-mode: vertical-rl;
     font-weight: 700;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 1.2;
     color: white;
     mix-blend-mode: difference;
     z-index: 50;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   
   .page-interface-index, .page-interface-home {
@@ -288,6 +288,16 @@
     pointer-events: none;
     z-index: 55;
     opacity: 0.85;
+  }
+
+  .overflow-x-clip {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
+  .overflow-y-clip {
+    overflow-y: hidden;
+    overflow-y: clip;
   }
 
 /* -----------------------------------------------------------------------------
