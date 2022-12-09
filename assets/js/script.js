@@ -694,3 +694,16 @@ function init() {
 }
 
 init();
+
+/* ----------------------------------------
+ * Product Page Image Change
+ * ---------------------------------------- */
+$(document).ready(function() {
+  $('#product-size').change(function(){
+    var image = $(this).find(':selected').data('image');
+    var price = $(this).find(':selected').data('price');
+
+    $('#product-main-image').attr('src', image);
+    $('#product-price').html(price);
+  });
+});
