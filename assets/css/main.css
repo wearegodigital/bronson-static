@@ -1303,3 +1303,62 @@
   top:50%;
   transform: translateY(-50%);
 }
+
+/*----------------------------------------------------------------------------*/
+/* Store Page
+/*----------------------------------------------------------------------------*/
+
+.title-element.title-overlay.dark-mode {
+  opacity: 0.9 !important;
+}
+
+.title-element.mix-blend-difference.dark-mode {
+  display: none !important;
+}
+
+.grid-item {
+  min-height: 100vh;
+}
+
+@media (min-width: 768px){
+  .grid #grid-item-1.grid-item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .grid .grid-item:nth-child(4n+1) {
+    margin-top: -20%;
+    margin-bottom: 20%;
+  }
+  
+  .grid .grid-item:nth-child(4n+2) {
+    margin-top: 10%;
+    margin-bottom: -10%;
+  }
+  
+  .grid .grid-item:nth-child(4n+3) {
+    margin-top: -15%;
+    margin-bottom: 15%;
+  }
+  
+  .grid .grid-item:nth-child(4n) {
+    margin-top: 25%;
+    margin-bottom: -25%;
+  }
+
+  .product-tease.layout-portrait {
+    max-width: 90%;
+  }
+
+  .product-tease.layout-landscape {
+    max-width: 110%;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 767px){
+  .grid-item {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}

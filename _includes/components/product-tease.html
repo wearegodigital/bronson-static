@@ -1,0 +1,47 @@
+{% assign alternating_count = include.count | modulo: 3 %}
+
+{% if include.layout == "portrait" %}
+  {% if alternating_count == 1 %}
+    {% assign mouse_x = "-0.05" %}
+    {% assign mouse_y = "0.075" %}
+  {% else if alternating_count == 2 %}
+    {% assign mouse_x = "0.05" %}
+    {% assign mouse_y = "-0.075" %}
+  {% else %}
+    {% assign mouse_x = "-0.0025" %}
+    {% assign mouse_y = "-0.0045" %}
+  {% endif %}
+{% else %}
+  {% if alternating_count == 1 %}
+    {% assign mouse_x = "-0.075" %}
+    {% assign mouse_y = "0.05" %}
+  {% else if alternating_count == 2 %}
+    {% assign mouse_x = "0.075" %}
+    {% assign mouse_y = "-0.05" %}
+  {% else %}
+    {% assign mouse_x = "0.0025" %}
+    {% assign mouse_y = "0.0045" %}
+  {% endif %}
+{% endif %}
+
+{% if include.mouse_x %}
+  {% assign mouse_x = include.mouse_x %}
+{% endif %}
+
+{% if include.mouse_y %}
+  {% assign mouse_y = include.mouse_y %}
+{% endif %}
+
+<section id="product-tease-{{ include.slug }}" class="section product-tease relative layout-{{ include.layout }} {{ include.css_classes }}" data-layout="{{ include.layout }}" {% if mouse_x != false %} data-mouse-x="{{ mouse_x }}"{% endif %} {% if mouse_y != false %}data-mouse-y="{{ mouse_y }}"{% endif %}>
+    <div class="product-image-container">
+        <a href="{{ include.url }}" class="block">
+          <img src="{{ include.image }}" class="w-100 h-auto"/>
+        </a>
+    </div>
+    <div class="product-information">
+      <a href="{{ include.url }}" class="block mt-4">
+        <h4 class="product-title text-black">{{ include.title }}</h4>
+        <p class="product-price text-black italic">from ${{ include.price }}</p>
+      </a>
+    </div>
+</section>
