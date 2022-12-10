@@ -655,7 +655,7 @@ let numberOfTargets = targets.length;
 console.log(numberOfTargets);
 
 let duration = 2; //change this
-let pause = 15; // change this
+let pause = 5; // change this
 let outDelay = 1;
 let stagger = duration + pause;
 let repeatDelay = (stagger * (numberOfTargets - 1)) + pause;
