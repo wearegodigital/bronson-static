@@ -32,16 +32,14 @@
   {% assign mouse_y = include.mouse_y %}
 {% endif %}
 
-<section id="product-tease-{{ include.slug }}" class="section product-tease relative layout-{{ include.layout }} {{ include.css_classes }}" data-layout="{{ include.layout }}" {% if mouse_x != false %} data-mouse-x="{{ mouse_x }}"{% endif %} {% if mouse_y != false %}data-mouse-y="{{ mouse_y }}"{% endif %}>
-    <div class="product-image-container">
-        <a href="{{ include.url }}" class="block">
-          <img src="{{ include.image }}" class="w-100 h-auto"/>
-        </a>
-    </div>
-    <div class="product-information">
+<section id="press-tease-{{ include.slug }}" class="section press-tease relative w-full md:w-1/2 layout-{{ include.layout }} {{ include.css_classes }}" data-layout="{{ include.layout }}" {% if mouse_x != false %} data-mouse-x="{{ mouse_x }}"{% endif %} {% if mouse_y != false %}data-mouse-y="{{ mouse_y }}"{% endif %}>
+    <a class="press-image-container" href="{{ include.url }}" class="block relative w-full" style="padding-top: 40%">
+      <img src="{{ include.image }}" class="w-100 absolute w-full h-full top-0 left-0 object-cover object-center"/>
+    </a>
+    <div class="press-information">
       <a href="{{ include.url }}" class="block mt-4">
-        <h4 class="product-title text-black">{{ include.title }}</h4>
-        <p class="product-price text-black italic">{{ include.price }}</p>
+        <h4 class="press-title text-black mb-4">{{ include.title }}</h4>
+        <p class="press-price text-black italic">{{ include.subtitle }}</p>
       </a>
     </div>
 </section>
