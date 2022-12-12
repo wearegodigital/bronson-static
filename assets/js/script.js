@@ -707,3 +707,70 @@ $(document).ready(function() {
     $('#product-price').html(price);
   });
 });
+
+/* ----------------------------------------
+ * Text Slider
+ * ---------------------------------------- */
+
+let vSlide;
+let titleNum = 0;
+
+gsap.utils.toArray('.page-tears-displays .portfolio-items section').forEach((section, i) => {
+  let elementHeight = document.querySelector(".scrolling-text").clientHeight;
+  let titleCount = $( ".scrolling-text .v-slides .v-slide" ).length;
+
+  window.addEventListener("resize", function () {
+    elementHeight = document.querySelector(".v-slide").clientHeight;
+  });
+
+  var vsOpts = {
+    slides: document.querySelectorAll(".v-slide"),
+    list: document.querySelector(".v-slides"),
+    duration: 0.3,
+    lineHeight: elementHeight,
+  };
+
+  vSlide = document.querySelector(".scrolling-text-mix .v-slides");
+  vSlideOvelay = document.querySelector(".scrolling-text-overlay .v-slides");
+
+  gsap.to("body", {
+    scrollTrigger: {
+      trigger: section,
+      scrub: 0.5,
+      start: 'start',
+      end: '+=50%',
+      onEnterBack: function(){
+        titleNum--;
+        console.log(titleNum);
+        let label = "slide" + titleNum;
+        gsap.to(vSlide,{
+          duration: 0.5,
+          y: titleNum * -1 * elementHeight,
+          ease: 'sine:inOut',
+        });      
+        gsap.to(vSlideOvelay,{
+          duration: 0.5,
+          y: titleNum * -1 * elementHeight,
+          ease: 'sine:inOut',
+        });      
+      },
+      onLeave: function(){
+        titleNum++;
+        console.log(titleNum);
+        let label = "slide" + titleNum;
+        gsap.to(vSlide,{
+          duration: 0.5,
+          y: titleNum * -1 * elementHeight,
+          ease: 'sine:inOut',
+        });     
+        gsap.to(vSlideOvelay,{
+          duration: 0.5,
+          y: titleNum * -1 * elementHeight,
+          ease: 'sine:inOut',
+        });  
+      },
+    }
+  });
+
+  
+});
