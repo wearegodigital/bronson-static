@@ -1575,11 +1575,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 30vw;
-  max-height: 50vh;
   color: white;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+#archive-container .archive-items .media-item img {
+  max-width: 30vw;
+  max-height: 30vh;
 }
